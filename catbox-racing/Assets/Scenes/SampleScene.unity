@@ -951,9 +951,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reverseSpeed: 1.75
-  maxSpeed: 60
+  maxSpeed: 30
   boostSpeed: 80
-  isSliding: 0
 --- !u!4 &1568882616
 Transform:
   m_ObjectHideFlags: 0

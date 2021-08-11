@@ -10,18 +10,18 @@ public class Player : MonoBehaviour
     //Função Move();
     private float currentSpeed = 0;
     private float realSpeed;
+    private float diferenceBetweenMaxSpeedAndBoostSpeed;
     [SerializeField] private float reverseSpeed; 
     [SerializeField] private float maxSpeed;
     [SerializeField] private float boostSpeed;
 
-    //Função Steer();
+    //Funções Steer(), Drift(), e GroundRotation();
     private float steerDirection;
     private float driftTime;
     private bool driftLeft;
     private bool driftRight;
     private float outwardDriftForce = 5000;
     private bool isGrounded;
-    [SerializeField] private bool isSliding;
 
     //Função Boost();
     private float boostTime = 0;
@@ -33,12 +33,18 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    void Start()
+    {
+        diferenceBetweenMaxSpeedAndBoostSpeed = boostSpeed - maxSpeed;
+    }
+
     void FixedUpdate()
     {
         Move();
         Steer();
         GroundRotation();
         Drift();
+        Boost();
     }
     #endregion
 
@@ -69,7 +75,20 @@ public class Player : MonoBehaviour
         float steerAmount;
 
         //Drift
+        if (driftLeft && !driftRight)
+        {
+            steerDirection = Input.GetAxis("Horizontal") < 0 ? -1.5f : -.5f;
 
+            if (isGrounded)
+                rb.AddForce(transform.right * outwardDriftForce * Time.deltaTime, ForceMode.Acceleration);
+        } 
+        else if (driftRight && !driftLeft)
+        {
+            steerDirection = Input.GetAxis("Horizontal") > 0 ? 1.5f : .5f;
+
+            if (isGrounded)
+                rb.AddForce(transform.right * -outwardDriftForce * Time.deltaTime, ForceMode.Acceleration);
+        }
         
         steerAmount = realSpeed > 30 ? realSpeed / steerMinStrength * steerDirection : realSpeed / steerMaxStrength * steerDirection;
         
@@ -80,8 +99,8 @@ public class Player : MonoBehaviour
     private void GroundRotation()
     {
         RaycastHit hit;
-        float raycastDistance = .75f;
-        if(Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))
+        float raycastDistance = 1.5f;
+        if (Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up * 2, hit.normal) * transform.rotation, 7.5f * Time.deltaTime);
             isGrounded = true;
@@ -117,15 +136,36 @@ public class Player : MonoBehaviour
         {
             driftLeft = false;
             driftRight = false;
-            isSliding = false;
 
+            if(driftTime > 1.5f && driftTime < 4)
+            {
+                boostTime = .75f;
+            }
+            if (driftTime >= 4f && driftTime < 7)
+            {
+                boostTime = 1.5f;
+            }
+            if (driftTime > 1.5f && driftTime < 4)
+            {
+                boostTime = 2.5f;
+            }
 
+            driftTime = 0;
         }
     }
 
     private void Boost()
     {
-
+        boostTime -= Time.deltaTime;
+        if(boostTime > 0)
+        {
+            maxSpeed = boostSpeed;
+            currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, 1 * Time.deltaTime);
+        }
+        else
+        {
+            maxSpeed = boostSpeed - diferenceBetweenMaxSpeedAndBoostSpeed;
+        }
     }
     #endregion
 }

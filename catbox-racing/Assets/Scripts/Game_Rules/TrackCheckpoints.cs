@@ -11,7 +11,7 @@ public class TrackCheckpoints : MonoBehaviour
 
     void Awake()
     {
-        Transform checkpointsTransform = transform.Find("Checkpoints");
+        Transform checkpointsTransform = transform.Find("Checkpoint");
 
         checkpointList = new List<Checkpoint>();
         foreach (Transform checkpointTransform in checkpointsTransform)
@@ -36,6 +36,7 @@ public class TrackCheckpoints : MonoBehaviour
         if (checkpointList.IndexOf(checkpoint) == nextCheckpointIndex)
         {
             nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)] = (nextCheckpointIndex + 1) % checkpointList.Count;
+            Debug.Log(nextCheckpointIndex);
         }
     }
 }

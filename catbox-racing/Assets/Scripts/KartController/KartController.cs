@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class Player : MonoBehaviour
+public class KartController : MonoBehaviour
 {
     #region "Variáveis"
     private Rigidbody rb;
+
+    //Valor dos Inputs
+    private float fowardAmount;
+    private float turnAmount;
+    private bool isDrifiting;
 
     //Função Move();
     private float currentSpeed = 0;
@@ -41,22 +45,22 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
-        Steer();
+        Move(fowardAmount);
+        Steer(turnAmount);
         GroundRotation();
-        Drift();
+        Drift(isDrifiting, turnAmount);
         Boost();
     }
     #endregion
 
-    #region "Movimentação do Player"
-    private void Move()
+    #region "Movimentação do Kart"
+    private void Move(float fowardAmount)
     {
         realSpeed = transform.InverseTransformDirection(rb.velocity).z;
 
-        if (Input.GetKey(KeyCode.W))
+        if (fowardAmount > 0)
             currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f);
-        else if (Input.GetKey(KeyCode.S))
+        else if (fowardAmount < 0)
             currentSpeed = Mathf.Lerp(currentSpeed, -maxSpeed / reverseSpeed, 1f * Time.deltaTime);
         else
             currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * 1.5f);
@@ -66,9 +70,9 @@ public class Player : MonoBehaviour
         rb.velocity = velocity;
     }
 
-    private void Steer()
+    private void Steer(float turnAmount)
     {
-        steerDirection = Input.GetAxisRaw("Horizontal");
+        steerDirection = turnAmount;
         float steerSpeed = 3f;
         float steerMinStrength = 4f;
         float steerMaxStrength = 1.5f;
@@ -78,14 +82,14 @@ public class Player : MonoBehaviour
         //Drift
         if (driftLeft && !driftRight)
         {
-            steerDirection = Input.GetAxis("Horizontal") < 0 ? -1.5f : -.5f;
+            steerDirection = turnAmount < 0 ? -1.5f : -.5f;
 
             if (isGrounded)
                 rb.AddForce(transform.right * outwardDriftForce * Time.deltaTime, ForceMode.Acceleration);
         } 
         else if (driftRight && !driftLeft)
         {
-            steerDirection = Input.GetAxis("Horizontal") > 0 ? 1.5f : .5f;
+            steerDirection = turnAmount > 0 ? 1.5f : .5f;
 
             if (isGrounded)
                 rb.AddForce(transform.right * -outwardDriftForce * Time.deltaTime, ForceMode.Acceleration);
@@ -112,9 +116,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Drift()
+    private void Drift(bool isDrifiting, float driftAmount)
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
+        if(isDrifiting && isGrounded)
         {
             if(steerDirection > 0)
             {
@@ -128,12 +132,12 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) && isGrounded && currentSpeed > 40 && Input.GetAxis("Horizontal") != 0)
+        if(isDrifiting && isGrounded && currentSpeed > 40 && driftAmount != 0)
         {
             driftTime += Time.deltaTime;
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) || realSpeed < 40)
+        if(isDrifiting || realSpeed < 40)
         {
             driftLeft = false;
             driftRight = false;
@@ -169,4 +173,17 @@ public class Player : MonoBehaviour
         }
     }
     #endregion
+
+    public void SetInputs(float fowardAmount, float turnAmount, bool isDrifiting)
+    {
+        this.fowardAmount = fowardAmount;
+        this.turnAmount = turnAmount;
+        this.isDrifiting = isDrifiting;
+    }
+
+    public void StopCompletely()
+    {
+        currentSpeed = 0;
+    }
+
 }

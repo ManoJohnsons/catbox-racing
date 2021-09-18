@@ -5,17 +5,24 @@ using UnityEngine;
 
 public class TrackCheckpoints : MonoBehaviour
 {
-    public event EventHandler OnPlayerCorrectCheckpoint;
-    public event EventHandler OnPlayerWrongCheckpoint;
+    #region "Events"
+    public event EventHandler<KartCheckpointEventArgs> OnKartCorrectCheckpoint;
+    public event EventHandler<KartCheckpointEventArgs> OnKartWrongCheckpoint;
+
+    public class KartCheckpointEventArgs : EventArgs
+    {
+        public Transform kartTransform;
+    }
+    #endregion
 
     [SerializeField] private List<Transform> kartTransformList;
 
     private List<Checkpoint> checkpointList;
     private List<int> nextCheckpointIndexList;
 
+    [SerializeField] private LapController lapController;
     private int lastLapCheckpoint;
 
-    [SerializeField] private LapController lapController;
     void Awake()
     {
         Transform checkpointsTransform = transform.Find("Checkpoints");
@@ -27,6 +34,7 @@ public class TrackCheckpoints : MonoBehaviour
             checkpoint.SetTrackCheckpoints(this);
 
             checkpointList.Add(checkpoint);
+
             lastLapCheckpoint++;
         }
 
@@ -46,19 +54,34 @@ public class TrackCheckpoints : MonoBehaviour
             Debug.Log("Correct");
             Debug.Log(nextCheckpointIndex);
             nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)] = (nextCheckpointIndex + 1) % checkpointList.Count;
-            OnPlayerCorrectCheckpoint?.Invoke(this, EventArgs.Empty);
+            OnKartCorrectCheckpoint?.Invoke(this, new KartCheckpointEventArgs {kartTransform = kartTransform});
 
-            if(nextCheckpointIndex == lastLapCheckpoint - 1)
-            {
-                Debug.Log("Lap Complete");
-                lapController.IncrementLap();
-            }
+            //ResetCheckpoint(kartTransform);
         }
         else
         {
             //Wrong checkpoint
             Debug.Log("Wrong");
-            OnPlayerWrongCheckpoint?.Invoke(this, EventArgs.Empty);
+            OnKartWrongCheckpoint?.Invoke(this, new KartCheckpointEventArgs { kartTransform = kartTransform });
         }
     }
+
+    public void ResetCheckpoint(Transform kartTransform)
+    {
+        int nextCheckpointIndex = nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)];
+
+        if (nextCheckpointIndex == lastLapCheckpoint - 1)
+        {
+            Debug.Log("Lap Complete");
+            lapController.IncrementLap();
+            nextCheckpointIndex = 0;
+        }
+    }
+
+    public Transform GetNextCheckpoint(Transform kartTransform)
+    {
+        return kartTransform;
+    }
 }
+
+

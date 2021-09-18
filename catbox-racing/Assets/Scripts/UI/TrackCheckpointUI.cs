@@ -8,8 +8,8 @@ public class TrackCheckpointUI : MonoBehaviour
 
     private void Start()
     {
-        trackCheckpoints.OnPlayerCorrectCheckpoint += TrackCheckpoints_OnPlayerCorrectCheckpoint;
-        trackCheckpoints.OnPlayerWrongCheckpoint += TrackCheckpoints_OnPlayerWrongCheckpoint;
+        trackCheckpoints.OnKartCorrectCheckpoint += TrackCheckpoints_OnPlayerCorrectCheckpoint;
+        trackCheckpoints.OnKartWrongCheckpoint += TrackCheckpoints_OnPlayerWrongCheckpoint;
 
         Hide();
     }

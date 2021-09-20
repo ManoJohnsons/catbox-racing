@@ -174,6 +174,7 @@ public class KartController : MonoBehaviour
     }
     #endregion
 
+    #region "Getters"
     public void SetInputs(float fowardAmount, float turnAmount, bool isDrifiting)
     {
         this.fowardAmount = fowardAmount;
@@ -185,5 +186,11 @@ public class KartController : MonoBehaviour
     {
         currentSpeed = 0;
     }
+    #endregion 
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, -transform.up * 1.5f);
+    }
 }

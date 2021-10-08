@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Checkpoint
   - Wall
+  - ItemBoxPowerUp
   layers:
   - Default
   - TransparentFX

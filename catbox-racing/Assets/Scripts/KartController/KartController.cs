@@ -11,25 +11,32 @@ public class KartController : MonoBehaviour
     private float fowardAmount;
     private float turnAmount;
     private bool isDrifiting;
+    private bool isUsingItem;
 
     //Função Move();
+    [Header("Função Move")]
+    [SerializeField] private float reverseSpeed;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float boostSpeed;
     private float currentSpeed = 0;
     private float realSpeed;
     private float diferenceBetweenMaxSpeedAndBoostSpeed;
-    [SerializeField] private float reverseSpeed; 
-    [SerializeField] private float maxSpeed;
-    [SerializeField] private float boostSpeed;
 
+    [Header("Função Ground Rotation")]
     //Funções Steer(), Drift(), e GroundRotation();
+    [SerializeField] private Transform kartModel;
+    private float outwardDriftForce = 5000;
     private float steerDirection;
     private float driftTime;
     private bool driftLeft;
     private bool driftRight;
-    private float outwardDriftForce = 5000;
     private bool isGrounded;
 
     //Função Boost();
     private float boostTime = 0;
+
+    //Função UseItem();
+    private bool isAbleToUseItem = false;
     #endregion
 
     #region "Funções do MonoBehaviour"
@@ -47,13 +54,14 @@ public class KartController : MonoBehaviour
     {
         Move(fowardAmount);
         Steer(turnAmount);
-        GroundRotation();
         Drift(isDrifiting, turnAmount);
+        UseItem(isUsingItem);
+        GroundRotation();
         Boost();
     }
     #endregion
 
-    #region "Movimentação do Kart"
+    #region "Ações do Kart"
     private void Move(float fowardAmount)
     {
         realSpeed = transform.InverseTransformDirection(rb.velocity).z;
@@ -101,48 +109,33 @@ public class KartController : MonoBehaviour
         transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, steerDirectionVector, steerSpeed * Time.deltaTime);
     }
 
-    private void GroundRotation()
-    {
-        RaycastHit hit;
-        float raycastDistance = 1.5f;
-        if (Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up * 2, hit.normal) * transform.rotation, 7.5f * Time.deltaTime);
-            isGrounded = true;
-        } 
-        else
-        {
-            isGrounded = false;
-        }
-    }
-
     private void Drift(bool isDrifiting, float driftAmount)
     {
-        if(isDrifiting && isGrounded)
+        if (isDrifiting && isGrounded)
         {
-            if(steerDirection > 0)
+            if (steerDirection > 0)
             {
                 driftRight = true;
                 driftLeft = false;
             }
-            else if(steerDirection < 0)
+            else if (steerDirection < 0)
             {
                 driftRight = false;
                 driftLeft = true;
             }
         }
 
-        if(isDrifiting && isGrounded && currentSpeed > 40 && driftAmount != 0)
+        if (isDrifiting && isGrounded && currentSpeed > 40 && driftAmount != 0)
         {
             driftTime += Time.deltaTime;
         }
 
-        if(isDrifiting || realSpeed < 40)
+        if (isDrifiting || realSpeed < 40)
         {
             driftLeft = false;
             driftRight = false;
 
-            if(driftTime > 1.5f && driftTime < 4)
+            if (driftTime > 1.5f && driftTime < 4)
             {
                 boostTime = .75f;
             }
@@ -159,6 +152,35 @@ public class KartController : MonoBehaviour
         }
     }
 
+    private void UseItem(bool isUsingItem)
+    {
+        if(isUsingItem == true && isAbleToUseItem == true)
+        {
+            Debug.Log("Apertou espaço para usar o item.");
+            isAbleToUseItem = false;
+        }
+        else if(isUsingItem == true && isAbleToUseItem == false)
+        {
+            Debug.Log("ERRO: Apertou espaço para usar o item, mas não tinha nenhum item para usar.");
+        }
+    }
+
+    private void GroundRotation()
+    {
+        RaycastHit hit;
+        float raycastDistance = 1.5f;
+        if (Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance))
+        {
+            kartModel.up = Vector3.Lerp(kartModel.up, hit.normal, Time.deltaTime * 7.5f);
+            kartModel.Rotate(0, transform.eulerAngles.y, 0);
+            isGrounded = true;
+        } 
+        else
+        {
+            isGrounded = false;
+        }
+    }
+
     private void Boost()
     {
         boostTime -= Time.deltaTime;
@@ -172,25 +194,31 @@ public class KartController : MonoBehaviour
             maxSpeed = boostSpeed - diferenceBetweenMaxSpeedAndBoostSpeed;
         }
     }
+
     #endregion
 
-    #region "Getters"
-    public void SetInputs(float fowardAmount, float turnAmount, bool isDrifiting)
+    #region "Setters"
+
+    public void SetInputs(float fowardAmount, float turnAmount, bool isDrifiting, bool isUsingItem)
     {
         this.fowardAmount = fowardAmount;
         this.turnAmount = turnAmount;
         this.isDrifiting = isDrifiting;
+        this.isUsingItem = isUsingItem;
     }
 
     public void StopCompletely()
     {
         currentSpeed = 0;
     }
-    #endregion 
+    #endregion
 
-    private void OnDrawGizmosSelected()
+    private void OnCollisionEnter(Collision collision)
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, -transform.up * 1.5f);
+        if (collision.gameObject.CompareTag("ItemBoxPowerUp"))
+        {
+            isAbleToUseItem = true;
+            collision.gameObject.SetActive(false);
+        }
     }
 }

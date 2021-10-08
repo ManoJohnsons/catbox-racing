@@ -17,7 +17,8 @@ public class KartControllerPlayer : MonoBehaviour
         float fowardAmount = Input.GetAxis("Vertical");
         float turnAmount = Input.GetAxis("Horizontal");
         bool isDrifiting = Input.GetKey(KeyCode.LeftShift);
+        bool isUsingItem = Input.GetKeyDown(KeyCode.Space);
 
-        kartController.SetInputs(fowardAmount, turnAmount, isDrifiting);
+        kartController.SetInputs(fowardAmount, turnAmount, isDrifiting, isUsingItem);
     }
 }

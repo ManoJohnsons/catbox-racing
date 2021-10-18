@@ -15,5 +15,7 @@ public class PickRandomItem : MonoBehaviour
     {
         int randomIndex = Random.Range(0, itemsToPickFrom.Length);
         //Apartir daqui começa a lógica de escolher o item sorteado.
+        Debug.Log("Ordem dos itens " + randomIndex);
+
     }
 }

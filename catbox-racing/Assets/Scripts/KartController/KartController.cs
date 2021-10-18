@@ -212,13 +212,4 @@ public class KartController : MonoBehaviour
         currentSpeed = 0;
     }
     #endregion
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("ItemBoxPowerUp"))
-        {
-            isAbleToUseItem = true;
-            collision.gameObject.SetActive(false);
-        }
-    }
 }

@@ -92,9 +92,9 @@ GameObject:
   - component: {fileID: 4840333873246176843}
   - component: {fileID: 132947049}
   - component: {fileID: 132947048}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: KartPlayer
-  m_TagString: Untagged
+  m_TagString: Kart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,11 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adcf672aa2f9b447be5e33ce3c93fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kartModel: {fileID: 8096285180328271543}
   reverseSpeed: 1.75
   maxSpeed: 30
   boostSpeed: 80
-  isGrounded: 0
+  kartModel: {fileID: 8096285180328271543}
 --- !u!114 &132947048
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,7 +59,6 @@ public class KartControllerAgent : Agent
         float forwardAmount = 0f;
         float turnAmount = 0f;
         bool isDrifting = false;
-        bool isUsingItem = false;
 
         switch (actions.DiscreteActions[0]) 
         {
@@ -78,14 +77,9 @@ public class KartControllerAgent : Agent
             case 0: isDrifting = false; break;
             case 1: isDrifting = true; break; 
         }
-        switch (actions.DiscreteActions[3])
-        {
-            case 0: isUsingItem = false; break;
-            case 1: isUsingItem = true; break;
-        }
 
 
-        kartController.SetInputs(forwardAmount, turnAmount, isDrifting, isUsingItem);
+        kartController.SetInputs(forwardAmount, turnAmount, isDrifting);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -101,14 +95,10 @@ public class KartControllerAgent : Agent
         int driftAction = 0;
         if (Input.GetKey(KeyCode.LeftShift)) driftAction = 1;
 
-        int usingItemAction = 0;
-        if (Input.GetKeyDown(KeyCode.Space)) usingItemAction = 1;
-
         ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
         discreteActions[0] = forwardAction;
         discreteActions[1] = turnAction;
         discreteActions[2] = driftAction;
-        discreteActions[3] = usingItemAction;
     }
 
     private void OnCollisionEnter(Collision collision)

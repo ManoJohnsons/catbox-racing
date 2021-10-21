@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 132947048}
   m_Layer: 10
   m_Name: KartPlayer
-  m_TagString: Kart
+  m_TagString: KartPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

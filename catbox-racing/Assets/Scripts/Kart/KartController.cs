@@ -11,7 +11,6 @@ public class KartController : MonoBehaviour
     private float fowardAmount;
     private float turnAmount;
     private bool isDrifiting;
-    private bool isUsingItem;
 
     //Função Move();
     [Header("Função Move")]
@@ -22,8 +21,7 @@ public class KartController : MonoBehaviour
     private float realSpeed;
     private float diferenceBetweenMaxSpeedAndBoostSpeed;
 
-    [Header("Função Ground Rotation")]
-    //Funções Steer(), Drift(), e GroundRotation();
+    //Funções Steer(), Drift() e GroundRotation();
     [SerializeField] private Transform kartModel;
     private float outwardDriftForce = 5000;
     private float steerDirection;
@@ -35,8 +33,6 @@ public class KartController : MonoBehaviour
     //Função Boost();
     private float boostTime = 0;
 
-    //Função UseItem();
-    private bool isAbleToUseItem = false;
     #endregion
 
     #region "Funções do MonoBehaviour"
@@ -55,7 +51,6 @@ public class KartController : MonoBehaviour
         Move(fowardAmount);
         Steer(turnAmount);
         Drift(isDrifiting, turnAmount);
-        UseItem(isUsingItem);
         GroundRotation();
         Boost();
     }
@@ -152,19 +147,6 @@ public class KartController : MonoBehaviour
         }
     }
 
-    private void UseItem(bool isUsingItem)
-    {
-        if(isUsingItem == true && isAbleToUseItem == true)
-        {
-            Debug.Log("Apertou espaço para usar o item.");
-            isAbleToUseItem = false;
-        }
-        else if(isUsingItem == true && isAbleToUseItem == false)
-        {
-            Debug.Log("ERRO: Apertou espaço para usar o item, mas não tinha nenhum item para usar.");
-        }
-    }
-
     private void GroundRotation()
     {
         RaycastHit hit;
@@ -181,7 +163,7 @@ public class KartController : MonoBehaviour
         }
     }
 
-    private void Boost()
+    public void Boost()
     {
         boostTime -= Time.deltaTime;
         if(boostTime > 0)
@@ -199,12 +181,11 @@ public class KartController : MonoBehaviour
 
     #region "Setters"
 
-    public void SetInputs(float fowardAmount, float turnAmount, bool isDrifiting, bool isUsingItem)
+    public void SetInputs(float fowardAmount, float turnAmount, bool isDrifiting)
     {
         this.fowardAmount = fowardAmount;
         this.turnAmount = turnAmount;
         this.isDrifiting = isDrifiting;
-        this.isUsingItem = isUsingItem;
     }
 
     public void StopCompletely()

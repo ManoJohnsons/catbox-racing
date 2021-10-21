@@ -5,8 +5,9 @@ using UnityEngine;
 public class ItemPowerUp : ScriptableObject
 {
     public new string name;
-    public float cooldownTime;
-    public float activeTime;
+    public string description;
+    public int itemUses;
+    public Sprite image;
 
-    public virtual void Activate(){ }
+    public virtual void Activate(GameObject parent){ }
 }

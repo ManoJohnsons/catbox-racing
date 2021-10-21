@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5750986432534612774}
   m_Layer: 10
   m_Name: KartAgent
-  m_TagString: Kart
+  m_TagString: KartAgent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,8 +160,8 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
-      BranchSizes: 03000000030000000200000002000000
-    VectorActionSize: 03000000030000000200000002000000
+      BranchSizes: 030000000300000002000000
+    VectorActionSize: 030000000300000002000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1

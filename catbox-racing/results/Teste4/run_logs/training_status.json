@@ -1,0 +1,29 @@
+{
+    "KartController": {
+        "checkpoints": [
+            {
+                "steps": 211040,
+                "file_path": "results\\Teste4\\KartController\\KartController-211040.onnx",
+                "reward": null,
+                "creation_time": 1635010099.826225,
+                "auxillary_file_paths": [
+                    "results\\Teste4\\KartController\\KartController-211040.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 211040,
+            "file_path": "results\\Teste4\\KartController.onnx",
+            "reward": null,
+            "creation_time": 1635010099.826225,
+            "auxillary_file_paths": [
+                "results\\Teste4\\KartController\\KartController-211040.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

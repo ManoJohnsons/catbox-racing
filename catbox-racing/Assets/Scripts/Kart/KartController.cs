@@ -6,6 +6,7 @@ public class KartController : MonoBehaviour
 {
     #region "Variáveis"
     private Rigidbody rb;
+    private float gravity = 35;
 
     //Valor dos Inputs
     private float fowardAmount;
@@ -48,6 +49,9 @@ public class KartController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //gravity
+        rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
+
         Move(fowardAmount);
         Steer(turnAmount);
         Drift(isDrifiting, turnAmount);

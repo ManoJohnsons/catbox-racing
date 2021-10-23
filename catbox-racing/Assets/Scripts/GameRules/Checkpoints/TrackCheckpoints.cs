@@ -20,9 +20,6 @@ public class TrackCheckpoints : MonoBehaviour
     private List<Checkpoint> checkpointList;
     private List<int> nextCheckpointIndexList;
 
-    [SerializeField] private LapController lapController;
-    private int lastLapCheckpoint;
-
     void Awake()
     {
         Transform checkpointsTransform = transform.Find("Checkpoints");
@@ -35,7 +32,6 @@ public class TrackCheckpoints : MonoBehaviour
 
             checkpointList.Add(checkpoint);
 
-            lastLapCheckpoint++;
         }
 
         nextCheckpointIndexList = new List<int>();
@@ -56,7 +52,6 @@ public class TrackCheckpoints : MonoBehaviour
             nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)] = (nextCheckpointIndex + 1) % checkpointList.Count;
             OnKartCorrectCheckpoint?.Invoke(this, new KartCheckpointEventArgs {kartTransform = kartTransform});
 
-            //ResetCheckpoint(kartTransform);
         }
         else
         {
@@ -69,18 +64,14 @@ public class TrackCheckpoints : MonoBehaviour
     public void ResetCheckpoint(Transform kartTransform)
     {
         int nextCheckpointIndex = nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)];
-
-        if (nextCheckpointIndex == lastLapCheckpoint - 1)
-        {
-            Debug.Log("Lap Complete");
-            lapController.IncrementLap();
-            nextCheckpointIndex = 0;
-        }
+        nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)] = 0;
     }
 
     public Transform GetNextCheckpoint(Transform kartTransform)
     {
-        return kartTransform;
+        int nextCheckpointIndex = nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)];
+
+        return checkpointList[nextCheckpointIndex].transform;
     }
 }
 

@@ -2,44 +2,44 @@
     "name": "root",
     "metadata": {
         "timer_format_version": "0.1.0",
-        "start_time_seconds": "1635021006",
+        "start_time_seconds": "1635008928",
         "python_version": "3.7.9 (tags/v3.7.9:13c94747c7, Aug 17 2020, 18:58:18) [MSC v.1900 64 bit (AMD64)]",
-        "command_line_arguments": "C:\\Users\\JohnB\\Unity\\Projeto TCC\\catbox-racing\\catbox-racing\\venv\\Scripts\\mlagents-learn --force",
+        "command_line_arguments": "C:\\Users\\JohnB\\Unity\\Projeto TCC\\catbox-racing\\catbox-racing\\venv\\Scripts\\mlagents-learn --run-id Teste2",
         "mlagents_version": "0.27.0",
         "mlagents_envs_version": "0.27.0",
         "communication_protocol_version": "1.5.0",
         "pytorch_version": "1.7.1+cu110",
         "numpy_version": "1.21.2",
-        "end_time_seconds": "1635021028"
+        "end_time_seconds": "1635008949"
     },
-    "total": 22.5983745,
+    "total": 20.6500396,
     "count": 1,
-    "self": 0.01107329999999962,
+    "self": 0.009878999999997973,
     "children": {
         "run_training.setup": {
-            "total": 0.1234090000000001,
+            "total": 0.12905410000000006,
             "count": 1,
-            "self": 0.1234090000000001
+            "self": 0.12905410000000006
         },
         "TrainerController.start_learning": {
-            "total": 22.4638922,
+            "total": 20.5111065,
             "count": 1,
-            "self": 0.0016247000000007006,
+            "self": 0.0009316999999953168,
             "children": {
                 "TrainerController._reset_env": {
-                    "total": 22.462178799999997,
+                    "total": 20.510151800000003,
                     "count": 1,
-                    "self": 22.462178799999997
+                    "self": 20.510151800000003
                 },
                 "trainer_threads": {
-                    "total": 1.900000000887303e-06,
+                    "total": 2.3999999996249244e-06,
                     "count": 1,
-                    "self": 1.900000000887303e-06
+                    "self": 2.3999999996249244e-06
                 },
                 "TrainerController._save_models": {
-                    "total": 8.680000000182986e-05,
+                    "total": 2.060000000270179e-05,
                     "count": 1,
-                    "self": 8.680000000182986e-05
+                    "self": 2.060000000270179e-05
                 }
             }
         }

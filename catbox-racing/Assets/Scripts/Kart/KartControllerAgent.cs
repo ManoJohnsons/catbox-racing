@@ -49,7 +49,7 @@ public class KartControllerAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Vector3 checkpointForward = trackCheckpoints.GetNextCheckpoint(transform).transform.forward;
+        Vector3 checkpointForward = trackCheckpoints.GetNextCheckpoint(transform).forward;
         float directionDot = Vector3.Dot(transform.forward, checkpointForward);
         sensor.AddObservation(directionDot);
     }
@@ -89,8 +89,8 @@ public class KartControllerAgent : Agent
         if (Input.GetKey(KeyCode.S)) forwardAction = 2;
 
         int turnAction = 0;
-        if (Input.GetKey(KeyCode.W)) turnAction = 1;
-        if (Input.GetKey(KeyCode.S)) turnAction = 2;
+        if (Input.GetKey(KeyCode.D)) turnAction = 1;
+        if (Input.GetKey(KeyCode.A)) turnAction = 2;
 
         int driftAction = 0;
         if (Input.GetKey(KeyCode.LeftShift)) driftAction = 1;
@@ -106,7 +106,7 @@ public class KartControllerAgent : Agent
         if (collision.gameObject.CompareTag("Wall"))
         {
             AddReward(-0.5f);
-            EndEpisode();
+            //EndEpisode();
         }
     }
 

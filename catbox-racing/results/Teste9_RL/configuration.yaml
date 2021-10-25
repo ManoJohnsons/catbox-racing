@@ -54,7 +54,7 @@ engine_settings:
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: ppo
+  run_id: Teste9_RL
   initialize_from: null
   load_model: false
   resume: true

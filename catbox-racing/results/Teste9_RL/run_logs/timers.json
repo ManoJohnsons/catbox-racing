@@ -1,0 +1,54 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1635184982",
+        "python_version": "3.7.9 (tags/v3.7.9:13c94747c7, Aug 17 2020, 18:58:18) [MSC v.1900 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\JohnB\\Unity\\Projeto TCC\\catbox-racing\\catbox-racing\\venv\\Scripts\\mlagents-learn --run-id Teste9_RL --resume",
+        "mlagents_version": "0.27.0",
+        "mlagents_envs_version": "0.27.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.1+cu110",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1635185022"
+    },
+    "total": 39.9993086,
+    "count": 1,
+    "self": 0.01573760000000135,
+    "children": {
+        "run_training.setup": {
+            "total": 0.46473659999999994,
+            "count": 1,
+            "self": 0.46473659999999994
+        },
+        "TrainerController.start_learning": {
+            "total": 39.518834399999996,
+            "count": 1,
+            "self": 0.0001754999999974416,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 39.3308399,
+                    "count": 1,
+                    "self": 39.3308399
+                },
+                "trainer_threads": {
+                    "total": 2.199999997287705e-06,
+                    "count": 1,
+                    "self": 2.199999997287705e-06
+                },
+                "TrainerController._save_models": {
+                    "total": 0.18781680000000023,
+                    "count": 1,
+                    "self": 0.009955300000001444,
+                    "children": {
+                        "RLTrainer._checkpoint": {
+                            "total": 0.17786149999999878,
+                            "count": 1,
+                            "self": 0.17786149999999878
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

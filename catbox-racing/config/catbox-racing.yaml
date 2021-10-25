@@ -17,14 +17,14 @@ behaviors:
     reward_signals:
       extrinsic:
         gamma: 0.99
-        strength: 0.1
+        strength: 0.4
       gail:
-        gamma: 0.99
-        strength: 1.0
-        demo_path: MLAgents Demostration\kartDriveToLeft_1.demo
+        gamma: 0.9
+        strength: 0.5
+        demo_path: MLAgents Demostration\demos
     behavioral_cloning:
-      strength: 1.0
-      demo_path: MLAgents Demostration\kartDriveToLeft_1.demo
+      strength: 0.5
+      demo_path: MLAgents Demostration\demos
     max_steps: 500000
     time_horizon: 64
     summary_freq: 10000

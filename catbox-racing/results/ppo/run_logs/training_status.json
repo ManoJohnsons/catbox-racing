@@ -3,5 +3,27 @@
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.27.0",
         "torch_version": "1.7.1+cu110"
+    },
+    "KartController": {
+        "checkpoints": [
+            {
+                "steps": 305352,
+                "file_path": "results\\ppo\\KartController\\KartController-305352.onnx",
+                "reward": 0.0,
+                "creation_time": 1635194583.0624886,
+                "auxillary_file_paths": [
+                    "results\\ppo\\KartController\\KartController-305352.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 305352,
+            "file_path": "results\\ppo\\KartController.onnx",
+            "reward": 0.0,
+            "creation_time": 1635194583.0624886,
+            "auxillary_file_paths": [
+                "results\\ppo\\KartController\\KartController-305352.pt"
+            ]
+        }
     }
 }

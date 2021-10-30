@@ -41,7 +41,7 @@ public class KartControllerAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        transform.position = spawnPosition.position + new Vector3(Random.Range(-4f, +4f), 0, Random.Range(-6f, 0f));
+        transform.position = spawnPosition.position;
         transform.forward = spawnPosition.forward;
         trackCheckpoints.ResetCheckpoint(transform);
         kartController.StopCompletely();
@@ -106,15 +106,16 @@ public class KartControllerAgent : Agent
         if (collision.gameObject.CompareTag("Wall"))
         {
             AddReward(-0.5f);
-            EndEpisode();
+            //EndEpisode();
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    /*private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
             AddReward(-0.1f);
+            Debug.Log("Esta acertando a parede");
         }
-    }
+    }*/
 }

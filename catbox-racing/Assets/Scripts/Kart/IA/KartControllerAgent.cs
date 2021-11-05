@@ -106,7 +106,7 @@ public class KartControllerAgent : Agent
         if (collision.gameObject.CompareTag("Wall"))
         {
             AddReward(-0.5f);
-            //EndEpisode();
+            EndEpisode();
         }
     }
 

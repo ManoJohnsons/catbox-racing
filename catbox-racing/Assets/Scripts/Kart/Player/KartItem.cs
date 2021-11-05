@@ -16,16 +16,19 @@ public class KartItem : MonoBehaviour
     public ItemPowerUp itemUse;
     private int remainingItemUses;
 
-    void Start()
+    private void Awake()
     {
         handler = GameObject.FindGameObjectWithTag("GameController").GetComponent<ItemsHandler>();
 
+    }
+
+    void Start()
+    {
         ResetItem();
     }
 
     void Update()
     {
-        useItem = Input.GetKeyDown(KeyCode.Space);
         if(useItem && heldItem != -1)
         {
             ActivateItem();
@@ -71,5 +74,10 @@ public class KartItem : MonoBehaviour
     public void StartPickup()
     {
         StartCoroutine(Pickup());
+    }
+
+    public void SetInput(bool isUsingItem)
+    {
+        this.useItem = isUsingItem;
     }
 }

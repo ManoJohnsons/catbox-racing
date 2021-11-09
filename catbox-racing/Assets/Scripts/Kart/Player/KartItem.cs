@@ -1,25 +1,20 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KartItem : MonoBehaviour
 {
-    private ItemsHandler handler;
-
-    private float delayBeforeItemPickup = 1;
-
-    public int heldItem;
-
-    public bool canPickup;
-    private bool useItem;
-
     public ItemPowerUp itemUse;
+    public int heldItem;
+    public bool canPickup;
+
+    private ItemsHandler handler;
     private int remainingItemUses;
+    private float delayBeforeItemPickup = 1;
+    private bool useItem;
 
     private void Awake()
     {
         handler = GameObject.FindGameObjectWithTag("GameController").GetComponent<ItemsHandler>();
-
     }
 
     void Start()
@@ -30,9 +25,7 @@ public class KartItem : MonoBehaviour
     void Update()
     {
         if(useItem && heldItem != -1)
-        {
             ActivateItem();
-        }
     }
 
     void ResetItem()
@@ -66,9 +59,7 @@ public class KartItem : MonoBehaviour
         itemUse.Activate(gameObject);
 
         if(remainingItemUses <= 0)
-        {
-            ResetItem();
-        }
+            ResetItem();      
     }
 
     public void StartPickup()

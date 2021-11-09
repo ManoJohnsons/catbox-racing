@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,7 +45,7 @@ public class TrackCheckpoints : MonoBehaviour
         int nextCheckpointIndex = nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)];
         if (checkpointList.IndexOf(checkpoint) == nextCheckpointIndex)
         {
-            //Correct checkpoint
+            //Checkpoint certo
             Debug.Log("Correct");
             Debug.Log(nextCheckpointIndex);
             nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)] = (nextCheckpointIndex + 1) % checkpointList.Count;
@@ -55,7 +54,7 @@ public class TrackCheckpoints : MonoBehaviour
         }
         else
         {
-            //Wrong checkpoint
+            //Checkpoint errado
             Debug.Log("Wrong");
             OnKartWrongCheckpoint?.Invoke(this, new KartCheckpointEventArgs { kartTransform = kartTransform });
         }

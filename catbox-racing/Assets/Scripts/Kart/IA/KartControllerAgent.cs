@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -78,44 +76,17 @@ public class KartControllerAgent : Agent
             case 1: isDrifting = true; break; 
         }
 
-
-        kartController.SetInputs(forwardAmount, turnAmount, isDrifting);
+        kartController.SetFowardAmount(forwardAmount);
+        kartController.SetTurnAmount(turnAmount);
+        kartController.SetDrifting(isDrifting);
     }
 
-    public override void Heuristic(in ActionBuffers actionsOut)
+    private void OnTriggerEnter(Collider other)
     {
-        int forwardAction = 0;
-        if (Input.GetKey(KeyCode.W)) forwardAction = 1;
-        if (Input.GetKey(KeyCode.S)) forwardAction = 2;
-
-        int turnAction = 0;
-        if (Input.GetKey(KeyCode.D)) turnAction = 1;
-        if (Input.GetKey(KeyCode.A)) turnAction = 2;
-
-        int driftAction = 0;
-        if (Input.GetKey(KeyCode.LeftShift)) driftAction = 1;
-
-        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
-        discreteActions[0] = forwardAction;
-        discreteActions[1] = turnAction;
-        discreteActions[2] = driftAction;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (other.gameObject.CompareTag("Wall"))
         {
             AddReward(-0.5f);
             EndEpisode();
         }
     }
-
-    /*private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            AddReward(-0.1f);
-            Debug.Log("Esta acertando a parede");
-        }
-    }*/
 }

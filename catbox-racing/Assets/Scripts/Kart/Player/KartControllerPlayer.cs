@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class KartControllerPlayer : MonoBehaviour
 {
@@ -15,6 +14,8 @@ public class KartControllerPlayer : MonoBehaviour
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.KartMove.Enable();
+        //Drift
+        playerInputActions.KartMove.Drift.performed += Drift_performed;
     }
 
     void Update()
@@ -23,15 +24,24 @@ public class KartControllerPlayer : MonoBehaviour
         Vector2 inputVector = playerInputActions.KartMove.Movement.ReadValue<Vector2>();
         float fowardAmount = inputVector.y;
         float turnAmount = inputVector.x;
-
-        //Drift
-        bool isDrifiting = playerInputActions.KartMove.Drift.triggered;
+        kartController.SetFowardAmount(fowardAmount);
+        kartController.SetTurnAmount(turnAmount);
 
         //Usando Item
         bool isUsingItem = playerInputActions.KartMove.UseItem.triggered;
 
         //Setters
-        kartController.SetInputs(fowardAmount, turnAmount, isDrifiting);
         kartItem.SetInput(isUsingItem);
+    }
+
+    private void Drift_performed(InputAction.CallbackContext context)
+    {
+        bool isDrifting;
+
+        if (context.performed)
+        {
+            isDrifting = true;
+            kartController.SetDrifting(isDrifting);
+        }
     }
 }

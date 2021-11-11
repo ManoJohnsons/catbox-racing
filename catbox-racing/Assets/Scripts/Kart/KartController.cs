@@ -14,10 +14,10 @@ public class KartController : MonoBehaviour
 
     //Função Move();
     [Header("Função Move")]
-    [SerializeField] private float reverseSpeed;
-    [SerializeField] private float maxSpeed;
-    private float currentSpeed = 0;
-    private float realSpeed;
+    [SerializeField] private float acceleration = 30f;
+    [SerializeField] private float steering = 80f;
+    private float speed, currentSpeed = 0;
+    private float rotate, currentRotate;
 
     //Função GroundRotation();
     [SerializeField] private Transform kartModel;
@@ -48,6 +48,12 @@ public class KartController : MonoBehaviour
         //Gravidade
         rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
 
+        //Accelerate the kart
+        rb.AddForce(transform.forward * currentSpeed, ForceMode.Acceleration);
+
+        //Steering the kart
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0, transform.eulerAngles.y + currentRotate, 0), Time.deltaTime * 5f);
+
         Move(fowardAmount);
         Steer(turnAmount);
         Drift(isDrifting, turnAmount);
@@ -57,35 +63,29 @@ public class KartController : MonoBehaviour
     #endregion
 
     #region "Ações do Kart"
-    private void Move(float fowardAmount)
+    private void MoveForward(float fowardAmount)
     {
-        realSpeed = transform.InverseTransformDirection(rb.velocity).z;
-
-        if (fowardAmount > 0)
-            currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f);
-        else if (fowardAmount < 0)
-            currentSpeed = Mathf.Lerp(currentSpeed, -maxSpeed / reverseSpeed, 1f * Time.deltaTime);
-        else
-            currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * 1.5f);
-
-        Vector3 velocity = transform.forward * currentSpeed;
-        velocity.y = rb.velocity.y;
-        rb.velocity = velocity;
+        if (fowardAmount != 0)
+        {
+            int direction = fowardAmount > 0 ? 1 : -1;
+            //continua aqiu meu parsero
+        }
     }
 
-    private void Steer(float turnAmount)
+    private void Steering(float turnAmount)
     {
-        steerDirection = turnAmount;
-        float steerSpeed = 3f;
-        float steerMinStrength = 4f;
-        float steerMaxStrength = 1.5f;
-        Vector3 steerDirectionVector;
-        float steerAmount;
+        if(turnAmount != 0)
+        {
+            int direction = turnAmount > 0 ? 1 : -1;
+            float amount = Mathf.Abs(turnAmount);
+            Steer(direction, amount);
+        }
+    }
 
-        steerAmount = realSpeed > 30 ? realSpeed / steerMinStrength * steerDirection : realSpeed / steerMaxStrength * steerDirection;
+    private void Steer(int direction, float amount)
+    {
 
-        steerDirectionVector = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + steerAmount, transform.eulerAngles.z);
-        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, steerDirectionVector, steerSpeed * Time.deltaTime);
+        rotate = (steering * direction) * amount;
     }
 
     private void Drift(bool isDrifting, float driftTurnAmount)
@@ -130,9 +130,10 @@ public class KartController : MonoBehaviour
 
     #endregion
 
-    //Controle da IA
+    #region "Controle da IA"
     public void StopCompletely()
     {
         currentSpeed = 0;
     }
+    #endregion
 }

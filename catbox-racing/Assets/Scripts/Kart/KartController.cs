@@ -26,7 +26,7 @@ public class KartController : MonoBehaviour
     private float steerDirection;
 
     //Função Drift();
-
+    [SerializeField] private bool drifting;
     //Função Boost();
 
 
@@ -43,33 +43,49 @@ public class KartController : MonoBehaviour
         
     }
 
+    void Update()
+    {
+        MoveForward(fowardAmount);
+        Steering(turnAmount);
+
+        currentSpeed = Mathf.SmoothStep(currentSpeed, speed, Time.deltaTime * 12f); speed = 0f;
+        currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f); rotate = 0f;
+    }
+
     void FixedUpdate()
     {
         //Gravidade
         rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
 
-        //Accelerate the kart
-        rb.AddForce(transform.forward * currentSpeed, ForceMode.Acceleration);
+        //Acelera o kart
+        if (!drifting)
+            rb.AddForce(-kartModel.transform.right * currentSpeed, ForceMode.Acceleration);
+        else
+            rb.AddForce(transform.forward * currentSpeed, ForceMode.Acceleration);
 
-        //Steering the kart
+        //Vira o kart
         transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0, transform.eulerAngles.y + currentRotate, 0), Time.deltaTime * 5f);
 
-        Move(fowardAmount);
-        Steer(turnAmount);
-        Drift(isDrifting, turnAmount);
         GroundRotation();
-        Boost();
     }
     #endregion
 
     #region "Ações do Kart"
     private void MoveForward(float fowardAmount)
     {
-        if (fowardAmount != 0)
+        if (fowardAmount > 0)
         {
-            int direction = fowardAmount > 0 ? 1 : -1;
-            //continua aqiu meu parsero
+            speed = acceleration;
         }
+        else if(fowardAmount < 0)
+        {
+            speed = -acceleration;
+        }
+    }
+
+    private void Drift(bool isDrifting, float driftTurnAmount)
+    {
+        //continua
     }
 
     private void Steering(float turnAmount)
@@ -88,10 +104,7 @@ public class KartController : MonoBehaviour
         rotate = (steering * direction) * amount;
     }
 
-    private void Drift(bool isDrifting, float driftTurnAmount)
-    {
-       
-    }
+
 
     private void GroundRotation()
     {

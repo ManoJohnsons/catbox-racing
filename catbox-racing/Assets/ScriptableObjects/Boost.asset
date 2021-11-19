@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Single Boost
   description: Pode usar o nitro uma vez.
-  itemUses: 0
+  itemUses: 1
   image: {fileID: 21300000, guid: faadcf1ead9b3ee42b6ef472e98f9a5d, type: 3}

@@ -29,7 +29,7 @@ behaviors:
           vis_encode_type: simple
           memory: null
           goal_conditioning_type: hyper
-    init_path: results\Teste12_RL34\KartController
+    init_path: results\Teste11_RL18\KartController
     keep_checkpoints: 5
     checkpoint_interval: 500000
     max_steps: 500000
@@ -54,8 +54,8 @@ engine_settings:
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: Teste12_RL35
-  initialize_from: Teste12_RL34
+  run_id: Teste12_RL1
+  initialize_from: Teste11_RL18
   load_model: false
   resume: false
   force: false

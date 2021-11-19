@@ -16,29 +16,6 @@ public class KartControllerPlayer : MonoBehaviour
         playerInputActions.KartMove.Enable();
         //Drift
         playerInputActions.KartMove.Drift.performed += Drift_performed;
-        playerInputActions.KartMove.Drift.canceled += Drift_canceled;
-    }
-
-    private void Drift_canceled(InputAction.CallbackContext context)
-    {
-        bool isDrifting;
-
-        if (context.canceled)
-        {
-            isDrifting = false;
-            kartController.SetDrifting(isDrifting);
-        }
-    }
-
-    private void Drift_performed(InputAction.CallbackContext context)
-    {
-        bool isDrifting;
-
-        if (context.performed)
-        {
-            isDrifting = true;
-            kartController.SetDrifting(isDrifting);
-        }
     }
 
     void Update()
@@ -55,5 +32,16 @@ public class KartControllerPlayer : MonoBehaviour
 
         //Setters
         kartItem.SetInput(isUsingItem);
+    }
+
+    private void Drift_performed(InputAction.CallbackContext context)
+    {
+        bool isDrifting;
+
+        if (context.performed)
+        {
+            isDrifting = true;
+            kartController.SetDrifting(isDrifting);
+        }
     }
 }

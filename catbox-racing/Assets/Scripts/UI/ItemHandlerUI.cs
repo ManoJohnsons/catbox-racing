@@ -17,10 +17,12 @@ public class ItemHandlerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(kart.heldItem == -1)       
-            if (kart.canPickup)           
-                imageChange.sprite = emptyItem;                 
-        else        
+        if (kart.heldItem == -1)
+        {
+            if (kart.canPickup)
+                imageChange.sprite = emptyItem;
+        }
+        else
             imageChange.sprite = kart.itemUse.image;       
     }
 }

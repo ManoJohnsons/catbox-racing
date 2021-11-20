@@ -186,7 +186,6 @@ public class KartController : MonoBehaviour
     public void SetDrifting(bool isDrifting)
     {
         this.isDrifting = isDrifting;
-        Debug.Log(this.isDrifting);
     }
     #endregion
 

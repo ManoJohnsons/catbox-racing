@@ -30,7 +30,6 @@ public class TrackCheckpoints : MonoBehaviour
             checkpoint.SetTrackCheckpoints(this);
 
             checkpointList.Add(checkpoint);
-
         }
 
         nextCheckpointIndexList = new List<int>();
@@ -46,16 +45,12 @@ public class TrackCheckpoints : MonoBehaviour
         if (checkpointList.IndexOf(checkpoint) == nextCheckpointIndex)
         {
             //Checkpoint certo
-            Debug.Log("Correct");
-            Debug.Log(nextCheckpointIndex);
             nextCheckpointIndexList[kartTransformList.IndexOf(kartTransform)] = (nextCheckpointIndex + 1) % checkpointList.Count;
             OnKartCorrectCheckpoint?.Invoke(this, new KartCheckpointEventArgs {kartTransform = kartTransform});
-
         }
         else
         {
             //Checkpoint errado
-            Debug.Log("Wrong");
             OnKartWrongCheckpoint?.Invoke(this, new KartCheckpointEventArgs { kartTransform = kartTransform });
         }
     }

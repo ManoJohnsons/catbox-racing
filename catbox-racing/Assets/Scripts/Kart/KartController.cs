@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 
 public class KartController : MonoBehaviour
 {
+    #region "Eventos"
+    public event EventHandler OnWheelRotate;
+    #endregion
     #region "Variáveis"
     private Rigidbody rb;
     private float gravity = 75;
@@ -53,6 +56,7 @@ public class KartController : MonoBehaviour
 
         Move(fowardAmount);
         Steer(turnAmount);
+        OnWheelRotate?.Invoke(this, EventArgs.Empty);
         Drift(isDrifting, turnAmount);
         GroundRotation();
         Boost();
@@ -172,7 +176,7 @@ public class KartController : MonoBehaviour
     }
     #endregion
 
-    #region "Setters"
+    #region "Setters e Getters"
     public void SetFowardAmount(float fowardAmount)
     {
         this.fowardAmount = fowardAmount;
@@ -186,6 +190,16 @@ public class KartController : MonoBehaviour
     public void SetDrifting(bool isDrifting)
     {
         this.isDrifting = isDrifting;
+    }
+
+    public float GetFowardAmount()
+    {
+        return fowardAmount;
+    }
+
+    public float GetTurnAmount()
+    {
+        return turnAmount;
     }
     #endregion
 

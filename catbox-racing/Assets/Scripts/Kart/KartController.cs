@@ -6,6 +6,7 @@ public class KartController : MonoBehaviour
     #region "Eventos"
     public event EventHandler OnWheelRotate;
     #endregion
+
     #region "Variáveis"
     private Rigidbody rb;
     private float gravity = 75;
@@ -192,14 +193,19 @@ public class KartController : MonoBehaviour
         this.isDrifting = isDrifting;
     }
 
-    public float GetFowardAmount()
-    {
-        return fowardAmount;
-    }
-
     public float GetTurnAmount()
     {
         return turnAmount;
+    }
+
+    public float GetCurrentSpeed()
+    {
+        return currentSpeed;
+    }
+
+    public float GetRealSpeed()
+    {
+        return realSpeed;
     }
     #endregion
 

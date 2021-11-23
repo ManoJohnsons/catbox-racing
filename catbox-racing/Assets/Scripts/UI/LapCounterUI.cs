@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class LapCounterUI : MonoBehaviour
@@ -11,6 +9,12 @@ public class LapCounterUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        lapComplete.OnLapDone += LapComplete_OnLapDone;
+        lapCounter.text = lapComplete.GetLapsDone().ToString() + " / " + lapComplete.GetLapsMax().ToString();
+    }
+
+    private void LapComplete_OnLapDone(object sender, System.EventArgs e)
+    {
+        lapCounter.text = lapComplete.GetLapsDone().ToString() + " / " + lapComplete.GetLapsMax().ToString();
     }
 }

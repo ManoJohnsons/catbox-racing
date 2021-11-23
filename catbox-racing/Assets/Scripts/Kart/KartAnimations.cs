@@ -26,18 +26,18 @@ public class KartAnimations : MonoBehaviour
 
         if(kartTurnAmount > 0)
         {
-            frontWheelLeft.localEulerAngles = Vector3.Lerp(frontWheelLeft.localEulerAngles, new Vector3(0, 155, 0), 5 * Time.deltaTime);
-            frontWheelRight.localEulerAngles = Vector3.Lerp(frontWheelRight.localEulerAngles, new Vector3(0, 155, 0), 5 * Time.deltaTime);
+            frontWheelLeft.localEulerAngles = Vector3.Lerp(frontWheelLeft.localEulerAngles, new Vector3(0, 205, 0), 5 * Time.deltaTime);
+            frontWheelRight.localEulerAngles = Vector3.Lerp(frontWheelRight.localEulerAngles, new Vector3(0, 205, 0), 5 * Time.deltaTime);
         } 
         else if(kartTurnAmount < 0)
         {
-            frontWheelLeft.localEulerAngles = Vector3.Lerp(frontWheelLeft.localEulerAngles, new Vector3(0, 205, 0), 5 * Time.deltaTime);
-            frontWheelRight.localEulerAngles = Vector3.Lerp(frontWheelRight.localEulerAngles, new Vector3(0, 205, 0), 5 * Time.deltaTime);
+            frontWheelLeft.localEulerAngles = Vector3.Lerp(frontWheelLeft.localEulerAngles, new Vector3(0, 155, 0), 5 * Time.deltaTime);
+            frontWheelRight.localEulerAngles = Vector3.Lerp(frontWheelRight.localEulerAngles, new Vector3(0, 155, 0), 5 * Time.deltaTime);
         }
         else
         {
-            frontWheelLeft.localEulerAngles = Vector3.Lerp(frontWheelLeft.localEulerAngles, new Vector3(0, 100, 0), 5 * Time.deltaTime);
-            frontWheelRight.localEulerAngles = Vector3.Lerp(frontWheelRight.localEulerAngles, new Vector3(0, 100, 0), 5 * Time.deltaTime);
+            frontWheelLeft.localEulerAngles = Vector3.Lerp(frontWheelLeft.localEulerAngles, new Vector3(0, 180, 0), 5 * Time.deltaTime);
+            frontWheelRight.localEulerAngles = Vector3.Lerp(frontWheelRight.localEulerAngles, new Vector3(0, 180, 0), 5 * Time.deltaTime);
         }
 
         if(kartCurrentSpeed > 30)

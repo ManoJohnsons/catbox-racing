@@ -7,10 +7,10 @@ public class ChangeFocus : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("KartAgent") && !isUsed || other.CompareTag("KartPlayer") && !isUsed)
+        if(other.TryGetComponent(out KartController _) && !isUsed)
         {
             isUsed = true;
-            positionManager.currentPoint++;
+            positionManager.FocusPassed();
         }
     }
 }

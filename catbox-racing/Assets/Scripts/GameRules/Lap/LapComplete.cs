@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class LapComplete : MonoBehaviour
 {
-    public EventHandler OnLapDone;
+    public event EventHandler OnLapDone;
+
     [SerializeField] private GameObject startTrigger;
     [SerializeField] private GameObject halfTrigger;
     [SerializeField] private int lapsDone;
@@ -19,17 +20,26 @@ public class LapComplete : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("KartPlayer"))
+        if(other.TryGetComponent(out KartController _))
         {
-            lapsDone += 1;
-            /* Terminar isso aqui
-             * OnLapDone? EventHandler temp = MyEvent;
-            if (temp != null)
-            {
-                temp();
-            }*/
             startTrigger.SetActive(false);
             halfTrigger.SetActive(true);
         }
+
+        if (other.CompareTag("KartPlayer"))
+        {
+            lapsDone += 1;
+            OnLapDone?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    public int GetLapsDone()
+    {
+        return lapsDone;
+    }
+
+    public int GetLapsMax()
+    {
+        return lapsMax;
     }
 }

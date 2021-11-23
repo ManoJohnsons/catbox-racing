@@ -47,4 +47,9 @@ public class PositionManager : MonoBehaviour
                 break;
         }
     }
+
+    public void FocusPassed()
+    {
+        currentPoint = (currentPoint + 1) % player.GetTotalPoints();
+    }
 }

@@ -7,7 +7,7 @@ public class HalfTrackTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("KartPlayer"))
+        if (other.TryGetComponent(out KartController _))
         {
             startTrigger.SetActive(true);
             halfTrigger.SetActive(false);

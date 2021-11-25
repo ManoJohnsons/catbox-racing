@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class LapComplete : MonoBehaviour
 {
-    public event EventHandler OnLapDone;
+    public event EventHandler OnKartLapDone;
+    public event EventHandler OnPlayerLapDone;
 
     [SerializeField] private GameObject startTrigger;
     [SerializeField] private GameObject halfTrigger;
@@ -22,14 +23,13 @@ public class LapComplete : MonoBehaviour
     {
         if(other.TryGetComponent(out KartController _))
         {
-            startTrigger.SetActive(false);
-            halfTrigger.SetActive(true);
+            OnKartLapDone?.Invoke(this, EventArgs.Empty);
         }
 
         if (other.CompareTag("KartPlayer"))
         {
             lapsDone += 1;
-            OnLapDone?.Invoke(this, EventArgs.Empty);
+            OnPlayerLapDone?.Invoke(this, EventArgs.Empty);
         }
     }
 

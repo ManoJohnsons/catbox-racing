@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663272569582418866}
   m_Layer: 0
-  m_Name: PowerUpsItemBoxLine
+  m_Name: BoostBallsLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 1634002771401869998, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}
       propertyPath: m_Name
-      value: PowerUpItemBox (3)
+      value: BoostBall (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1634002771401869999, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}
@@ -120,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 1634002771401869998, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}
       propertyPath: m_Name
-      value: PowerUpItemBox (1)
+      value: BoostBall (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1634002771401869999, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}
@@ -195,7 +195,7 @@ PrefabInstance:
     - target: {fileID: 1634002771401869998, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}
       propertyPath: m_Name
-      value: PowerUpItemBox
+      value: BoostBall
       objectReference: {fileID: 0}
     - target: {fileID: 1634002771401869999, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}
@@ -270,7 +270,7 @@ PrefabInstance:
     - target: {fileID: 1634002771401869998, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}
       propertyPath: m_Name
-      value: PowerUpItemBox (2)
+      value: BoostBall (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1634002771401869999, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}
@@ -345,7 +345,7 @@ PrefabInstance:
     - target: {fileID: 1634002771401869998, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}
       propertyPath: m_Name
-      value: PowerUpItemBox (4)
+      value: BoostBall (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1634002771401869999, guid: 1a5a788091067ec49b882b91ced206b3,
         type: 3}

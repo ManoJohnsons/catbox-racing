@@ -1,18 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using TMPro;
 
 public class LocalizedText : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private string _localizationKey;
+
+    TextMeshProUGUI _textComponent;
+
+    IEnumerator Start()
     {
-        
+        while (!LocalizationManager.Instance._isReady)
+        {
+            yield return null;
+        }
+        AttributionText();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AttributionText()
     {
-        
+        if(_textComponent == null)
+        {
+            _textComponent = gameObject.GetComponent<TextMeshProUGUI>(); 
+        } 
     }
 }

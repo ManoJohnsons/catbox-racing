@@ -1,0 +1,12 @@
+{
+    "items": [
+        {
+            "key":"TEST",
+            "value":"meu primeiro teste :D, em brazilian"
+        },
+        {
+            "key":"TEST_TWO",
+            "value":"meu segundo teste :D, em brazillian denovo :DDD"
+        }
+    ]
+}

@@ -6,6 +6,12 @@ public class Countdown : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI countdown;
     [SerializeField] private GameObject kartControl;
+    private TimerManager timerManager;
+
+    private void Awake()
+    {
+        timerManager = GetComponent<TimerManager>();
+    }
 
     void Start()
     {
@@ -28,5 +34,6 @@ public class Countdown : MonoBehaviour
         yield return new WaitForSeconds(1);
         countdown.gameObject.SetActive(false);
         kartControl.SetActive(true);
+        timerManager.enabled = true;
     }
 }

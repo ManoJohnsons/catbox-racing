@@ -78,7 +78,7 @@ public class KartControllerAgent : Agent
 
         kartController.SetFowardAmount(forwardAmount);
         kartController.SetTurnAmount(turnAmount);
-        kartController.SetDrifting(isDrifting);
+        //kartController.SetDrifting(isDrifting);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -16,41 +16,24 @@ public class KartControllerPlayer : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.KartMove.Enable();
 
-        //Drift
-        playerInputActions.KartMove.Drift.performed += Drift_performed;
-        playerInputActions.KartMove.Drift.canceled += Drift_canceled;
-
         //Pause
         playerInputActions.KartMove.Pause.performed += _ => PauseCondition();
+        playerInputActions.PlayerUI.Resume.performed += _ => PauseCondition();
     }
 
     private void PauseCondition()
     {
         if (gameCondition.GetIsPaused())
+        {
             gameCondition.GameResume();
-        else
-            gameCondition.GamePaused();
-    }
-
-    private void Drift_canceled(InputAction.CallbackContext context)
-    {
-        bool isDrifting;
-
-        if (context.canceled)
-        {
-            isDrifting = false;
-            kartController.SetDrifting(isDrifting);
+            playerInputActions.KartMove.Enable();
+            playerInputActions.PlayerUI.Disable();
         }
-    }
-
-    private void Drift_performed(InputAction.CallbackContext context)
-    {
-        bool isDrifting;
-
-        if (context.performed)
+        else
         {
-            isDrifting = true;
-            kartController.SetDrifting(isDrifting);
+            gameCondition.GamePaused();
+            playerInputActions.PlayerUI.Enable();
+            playerInputActions.KartMove.Disable();
         }
     }
 
@@ -65,9 +48,6 @@ public class KartControllerPlayer : MonoBehaviour
 
         //Usando Item
         bool isUsingItem = playerInputActions.KartMove.UseItem.triggered;
-
-        //Pausando
-
 
         //Setters
         kartItem.SetInput(isUsingItem);

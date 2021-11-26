@@ -14,7 +14,6 @@ public class KartController : MonoBehaviour
     //Valor dos Inputs
     private float fowardAmount;
     private float turnAmount;
-    private bool isDrifting;
 
     //Função Move();
     [Header("Função Move")]
@@ -23,31 +22,17 @@ public class KartController : MonoBehaviour
     [SerializeField] private float boostSpeed;
     private float currentSpeed = 0;
     private float realSpeed;
-    private float diferenceBetweenMaxSpeedAndBoostSpeed;
 
     //Funções Steer(), Drift() e GroundRotation();
     [Header("Função Ground Rotation")]
     [SerializeField] private Transform kartModel;
-    private float outwardDriftForce = 5000;
     private float steerDirection;
-    private float driftTime;
-    private bool driftLeft;
-    private bool driftRight;
-    private bool isGrounded;
-
-    //Função Boost();
-    private float boostTime = 0;
     #endregion
 
     #region "Funções do MonoBehaviour"
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-    }
-
-    void Start()
-    {
-        diferenceBetweenMaxSpeedAndBoostSpeed = boostSpeed - maxSpeed;
     }
 
     void FixedUpdate()
@@ -58,9 +43,7 @@ public class KartController : MonoBehaviour
         Move(fowardAmount);
         Steer(turnAmount);
         OnWheelRotate?.Invoke(this, EventArgs.Empty);
-        Drift(isDrifting, turnAmount);
         GroundRotation();
-        Boost();
     }
     #endregion
 
@@ -90,61 +73,10 @@ public class KartController : MonoBehaviour
         float steerMaxStrength = 1.5f;
         float steerAmount;
 
-        //Drift
-        if (driftLeft && !driftRight)
-        {
-            steerDirection = turnAmount < 0 ? -1.5f : -.5f;
-            if (isGrounded)
-                rb.AddForce(transform.right * outwardDriftForce * Time.deltaTime, ForceMode.Acceleration);
-        }
-        else if (driftRight && !driftLeft)
-        {
-            steerDirection = turnAmount > 0 ? 1.5f : .5f;
-            if (isGrounded)
-                rb.AddForce(transform.right * -outwardDriftForce * Time.deltaTime, ForceMode.Acceleration);
-        }
-
         steerAmount = realSpeed > 30 ? realSpeed / steerMinStrength * steerDirection : realSpeed / steerMaxStrength * steerDirection;
 
         steerDirectionVector = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + steerAmount, transform.eulerAngles.z);
         transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, steerDirectionVector, steerSpeed * Time.deltaTime);
-    }
-
-    private void Drift(bool isDrifting, float driftTurnAmount)
-    {
-        if (isDrifting && isGrounded)
-        {
-            if (steerDirection > 0)
-            {
-                driftRight = true;
-                driftLeft = false;
-            }
-            else if (steerDirection < 0)
-            {
-                driftRight = false;
-                driftLeft = true;
-            }
-        }
-
-        if (isDrifting && isGrounded && currentSpeed > 40 && driftTurnAmount != 0)
-        {
-            driftTime += Time.deltaTime;
-        }
-
-        if (isDrifting || realSpeed < 40)
-        {
-            driftLeft = false;
-            driftRight = false;
-
-            if (driftTime > 1.5f && driftTime < 4)          
-                boostTime = .75f;          
-            if (driftTime >= 4f && driftTime < 7)           
-                boostTime = 1.5f;           
-            if (driftTime > 1.5f && driftTime < 4)           
-                boostTime = 2.5f;
-
-            driftTime = 0;
-        }
     }
 
     private void GroundRotation()
@@ -155,25 +87,11 @@ public class KartController : MonoBehaviour
         {
             kartModel.up = Vector3.Lerp(kartModel.up, hit.normal, Time.deltaTime * 7.5f);
             kartModel.Rotate(0, transform.eulerAngles.y, 0);
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
         }
     }
     public void Boost()
     {
-        boostTime -= Time.deltaTime;
-        if (boostTime > 0)
-        {
-            maxSpeed = boostSpeed;
-            currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, 1 * Time.deltaTime);
-        }
-        else
-        {
-            maxSpeed = boostSpeed - diferenceBetweenMaxSpeedAndBoostSpeed;
-        }
+        currentSpeed = currentSpeed * 2;
     }
     #endregion
 
@@ -186,11 +104,6 @@ public class KartController : MonoBehaviour
     public void SetTurnAmount(float turnAmount)
     {
         this.turnAmount = turnAmount;
-    }
-
-    public void SetDrifting(bool isDrifting)
-    {
-        this.isDrifting = isDrifting;
     }
 
     public float GetTurnAmount()

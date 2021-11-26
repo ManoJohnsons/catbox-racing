@@ -14,6 +14,7 @@ public class KartControllerPlayer : MonoBehaviour
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.KartMove.Enable();
+
         //Drift
         playerInputActions.KartMove.Drift.performed += Drift_performed;
         playerInputActions.KartMove.Drift.canceled += Drift_canceled;

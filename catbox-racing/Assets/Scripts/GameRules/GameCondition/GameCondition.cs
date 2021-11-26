@@ -1,32 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class GameCondition : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public event EventHandler OnGameContinue;
+    public event EventHandler OnGameTryAgain;
+    public event EventHandler OnGamePaused;
+
+    [SerializeField] private LapComplete lapComplete;
+    private PositionManager positionManager;
+    private GameTime gameTime;
+
+    private void Awake()
     {
-        
+        positionManager = GetComponent<PositionManager>();
+        gameTime = GetComponent<GameTime>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GameEnd()
     {
-        
+        if (lapComplete.GetLapsDone() == lapComplete.GetLapsMax())
+        {
+            //GameContinue
+            if(positionManager.GetCurrentPosition() == 1 || positionManager.GetCurrentPosition() == 2)
+            {
+                gameTime.GameStop();
+                OnGameContinue?.Invoke(this, EventArgs.Empty);
+            }
+
+            //GameOver
+            if (positionManager.GetCurrentPosition() == 3 || positionManager.GetCurrentPosition() == 4)
+            {
+                gameTime.GameStop();
+                OnGameTryAgain?.Invoke(this, EventArgs.Empty);
+            }
+        }
     }
 
-    /*basicamente
-     * if(jogador em primeiro ou segundo)
-     * {
-     * ganhou :D;
-     * mostra tela de fim de jogo (ir pro menu ou continuar);
-     * }
-     * 
-     * if(jogador em terceiro ou ultimo)
-     * {
-     * perdeu :(;
-     * mostra tela de fim de jogo (ir pro menu ou tentar denovo);
-     * }
-     */
+    public void GamePaused()
+    {
+        gameTime.GameStop();
+        OnGamePaused?.Invoke(this, EventArgs.Empty);
+    }
 }

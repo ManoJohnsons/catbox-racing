@@ -52,4 +52,9 @@ public class PositionManager : MonoBehaviour
     {
         currentPoint = (currentPoint + 1) % player.GetTotalPoints();
     }
+
+    public int GetCurrentPosition()
+    {
+        return currentPosition;
+    }
 }

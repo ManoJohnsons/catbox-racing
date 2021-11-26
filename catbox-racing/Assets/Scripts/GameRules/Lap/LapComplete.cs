@@ -6,17 +6,13 @@ public class LapComplete : MonoBehaviour
     public event EventHandler OnKartLapDone;
     public event EventHandler OnPlayerLapDone;
 
-    [SerializeField] private GameObject startTrigger;
-    [SerializeField] private GameObject halfTrigger;
+    [SerializeField] private GameCondition gameCondition;
     [SerializeField] private int lapsDone;
     [SerializeField] private int lapsMax;
 
     private void Update()
     {
-        if(lapsDone == lapsMax)
-        {
-            Debug.Log("Race Finished");
-        }
+        gameCondition.GameEnd();
     }
 
     private void OnTriggerEnter(Collider other)

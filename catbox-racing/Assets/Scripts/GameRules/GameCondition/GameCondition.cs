@@ -6,6 +6,7 @@ public class GameCondition : MonoBehaviour
     public event EventHandler OnGameContinue;
     public event EventHandler OnGameTryAgain;
     public event EventHandler OnGamePaused;
+    public event EventHandler OnGameResume;
 
     [SerializeField] private LapComplete lapComplete;
     private PositionManager positionManager;
@@ -41,5 +42,16 @@ public class GameCondition : MonoBehaviour
     {
         gameTime.GameStop();
         OnGamePaused?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void GameResume()
+    {
+        gameTime.GameResume();
+        OnGameResume?.Invoke(this, EventArgs.Empty);
+    }
+
+    public bool GetIsPaused()
+    {
+        return gameTime.GetIsPaused();
     }
 }

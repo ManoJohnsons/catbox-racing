@@ -41,6 +41,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""db0c5cab-37d5-403c-897d-bba251d06461"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -197,6 +205,44 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c592bb71-9cd1-4de1-99e0-8191ac034342"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""PlayerUI"",
+            ""id"": ""f1acb9e8-46ef-4988-ae38-9669281523cd"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""7a79e4ce-444b-4d75-aa63-5680fef1db9a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""15c85250-20d8-431d-93c6-0be710fc6098"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -231,6 +277,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_KartMove_Movement = m_KartMove.FindAction("Movement", throwIfNotFound: true);
         m_KartMove_Drift = m_KartMove.FindAction("Drift", throwIfNotFound: true);
         m_KartMove_UseItem = m_KartMove.FindAction("UseItem", throwIfNotFound: true);
+        m_KartMove_Pause = m_KartMove.FindAction("Pause", throwIfNotFound: true);
+        // PlayerUI
+        m_PlayerUI = asset.FindActionMap("PlayerUI", throwIfNotFound: true);
+        m_PlayerUI_Newaction = m_PlayerUI.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -283,6 +333,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_KartMove_Movement;
     private readonly InputAction m_KartMove_Drift;
     private readonly InputAction m_KartMove_UseItem;
+    private readonly InputAction m_KartMove_Pause;
     public struct KartMoveActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -290,6 +341,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_KartMove_Movement;
         public InputAction @Drift => m_Wrapper.m_KartMove_Drift;
         public InputAction @UseItem => m_Wrapper.m_KartMove_UseItem;
+        public InputAction @Pause => m_Wrapper.m_KartMove_Pause;
         public InputActionMap Get() { return m_Wrapper.m_KartMove; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +360,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @UseItem.started -= m_Wrapper.m_KartMoveActionsCallbackInterface.OnUseItem;
                 @UseItem.performed -= m_Wrapper.m_KartMoveActionsCallbackInterface.OnUseItem;
                 @UseItem.canceled -= m_Wrapper.m_KartMoveActionsCallbackInterface.OnUseItem;
+                @Pause.started -= m_Wrapper.m_KartMoveActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_KartMoveActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_KartMoveActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_KartMoveActionsCallbackInterface = instance;
             if (instance != null)
@@ -321,10 +376,46 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @UseItem.started += instance.OnUseItem;
                 @UseItem.performed += instance.OnUseItem;
                 @UseItem.canceled += instance.OnUseItem;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
     public KartMoveActions @KartMove => new KartMoveActions(this);
+
+    // PlayerUI
+    private readonly InputActionMap m_PlayerUI;
+    private IPlayerUIActions m_PlayerUIActionsCallbackInterface;
+    private readonly InputAction m_PlayerUI_Newaction;
+    public struct PlayerUIActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public PlayerUIActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_PlayerUI_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerUI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerUIActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerUIActions instance)
+        {
+            if (m_Wrapper.m_PlayerUIActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_PlayerUIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public PlayerUIActions @PlayerUI => new PlayerUIActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -348,5 +439,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnDrift(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IPlayerUIActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }

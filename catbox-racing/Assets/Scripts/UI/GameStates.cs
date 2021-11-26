@@ -13,6 +13,12 @@ public class GameStates : MonoBehaviour
         gameCondition.OnGameContinue += GameCondition_OnGameContinue;
         gameCondition.OnGameTryAgain += GameCondition_OnGameTryAgain;
         gameCondition.OnGamePaused += GameCondition_OnGamePaused;
+        gameCondition.OnGameResume += GameCondition_OnGameResume;
+    }
+
+    private void GameCondition_OnGameResume(object sender, System.EventArgs e)
+    {
+        pausedScreen.SetActive(false);
     }
 
     private void GameCondition_OnGamePaused(object sender, System.EventArgs e)

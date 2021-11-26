@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class KartControllerPlayer : MonoBehaviour
 {
+    [SerializeField] private GameCondition gameCondition;
     private KartController kartController;
     private KartItem kartItem;
     private PlayerInputActions playerInputActions;
@@ -18,6 +19,17 @@ public class KartControllerPlayer : MonoBehaviour
         //Drift
         playerInputActions.KartMove.Drift.performed += Drift_performed;
         playerInputActions.KartMove.Drift.canceled += Drift_canceled;
+
+        //Pause
+        playerInputActions.KartMove.Pause.performed += _ => PauseCondition();
+    }
+
+    private void PauseCondition()
+    {
+        if (gameCondition.GetIsPaused())
+            gameCondition.GameResume();
+        else
+            gameCondition.GamePaused();
     }
 
     private void Drift_canceled(InputAction.CallbackContext context)
@@ -53,6 +65,9 @@ public class KartControllerPlayer : MonoBehaviour
 
         //Usando Item
         bool isUsingItem = playerInputActions.KartMove.UseItem.triggered;
+
+        //Pausando
+
 
         //Setters
         kartItem.SetInput(isUsingItem);

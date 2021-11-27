@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 42495440}
   - component: {fileID: 42495442}
   - component: {fileID: 42495441}
+  - component: {fileID: 42495443}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -330,6 +331,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42495439}
   m_CullTransparentMesh: 0
+--- !u!114 &42495443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42495439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bd9cff920e3a240a063d65091ba2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localizationKey: MENU_NAME_SELECT_TRACK
 --- !u!1 &86142262
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33bd9cff920e3a240a063d65091ba2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizationKey: 
+  _localizationKey: BUTTON_EXIT_TEXT
 --- !u!1 &193631440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1175,7 @@ GameObject:
   - component: {fileID: 766060470}
   - component: {fileID: 766060472}
   - component: {fileID: 766060471}
+  - component: {fileID: 766060473}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -1207,7 +1222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'lap record: '
+  m_text: 'Lap record: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1284,6 +1299,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766060469}
   m_CullTransparentMesh: 0
+--- !u!114 &766060473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766060469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bd9cff920e3a240a063d65091ba2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localizationKey: LAP_RECORD_LABEL
 --- !u!1 &773650272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,7 +1947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33bd9cff920e3a240a063d65091ba2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizationKey: 
+  _localizationKey: BUTTON_CONFIG_TEXT
 --- !u!1 &1067447946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,6 +2908,7 @@ GameObject:
   - component: {fileID: 1459252394}
   - component: {fileID: 1459252396}
   - component: {fileID: 1459252395}
+  - component: {fileID: 1459252397}
   m_Layer: 5
   m_Name: MenuName
   m_TagString: Untagged
@@ -3002,6 +3031,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459252393}
   m_CullTransparentMesh: 0
+--- !u!114 &1459252397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459252393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bd9cff920e3a240a063d65091ba2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localizationKey: MENU_NAME_CONFIG
 --- !u!1 &1481722890
 GameObject:
   m_ObjectHideFlags: 0
@@ -4040,6 +4082,7 @@ GameObject:
   - component: {fileID: 2049787603}
   - component: {fileID: 2049787605}
   - component: {fileID: 2049787604}
+  - component: {fileID: 2049787606}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4164,6 +4207,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049787602}
   m_CullTransparentMesh: 0
+--- !u!114 &2049787606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049787602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bd9cff920e3a240a063d65091ba2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localizationKey: MENU_NAME_SELECT_CHAR
 --- !u!1 &2050864105
 GameObject:
   m_ObjectHideFlags: 0
@@ -4310,7 +4366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33bd9cff920e3a240a063d65091ba2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizationKey: 
+  _localizationKey: BUTTON_START_TEXT
 --- !u!1 &2063807364
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class KartControllerPlayer : MonoBehaviour
 {
     [SerializeField] private GameCondition gameCondition;
+    [SerializeField] private Transform spawnPosition;
     private KartController kartController;
     private KartItem kartItem;
     private PlayerInputActions playerInputActions;
@@ -19,6 +20,8 @@ public class KartControllerPlayer : MonoBehaviour
         //Pause
         playerInputActions.KartMove.Pause.performed += _ => PauseCondition();
         playerInputActions.PlayerUI.Resume.performed += _ => PauseCondition();
+
+        gameObject.transform.position = spawnPosition.position;
     }
 
     private void PauseCondition()

@@ -23,7 +23,15 @@ public class LocalizedText : MonoBehaviour
     {
         if(_textComponent == null)
         {
-            _textComponent = gameObject.GetComponent<TextMeshProUGUI>(); 
-        } 
+            _textComponent = gameObject.GetComponent<TextMeshProUGUI>();
+        }
+        try
+        {
+            _textComponent.text = LocalizationManager.Instance.GetTextForKey(_localizationKey);
+        }
+        catch(Exception e)
+        {
+            Debug.LogError(e);
+        }
     }
 }

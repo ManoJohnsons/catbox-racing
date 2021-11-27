@@ -1,12 +1,32 @@
 {
     "items": [
         {
-            "key":"TEST",
-            "value":"meu primeiro teste :D, em brazilian"
+            "key":"BUTTON_START_TEXT",
+            "value":"Iniciar"
         },
         {
-            "key":"TEST_TWO",
-            "value":"meu segundo teste :D, em brazillian denovo :DDD"
+            "key":"BUTTON_CONFIG_TEXT",
+            "value":"Configurações"
+        },
+        {
+            "key":"BUTTON_EXIT_TEXT",
+            "value":"Sair"
+        },
+        {
+            "key":"MENU_NAME_CONFIG",
+            "value":"CONFIGURAÇÕES"
+        },
+        {
+            "key":"MENU_NAME_SELECT_CHAR",
+            "value":"SELECIONE SEU PERSONAGEM"
+        },
+        {
+            "key":"MENU_NAME_SELECT_TRACK",
+            "value":"SELECIONE A PISTA"
+        },
+        {
+            "key":"LAP_RECORD_LABEL",
+            "value":"Melhor tempo:"
         }
     ]
 }

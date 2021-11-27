@@ -1,12 +1,32 @@
 {
     "items": [
         {
-            "key":"TEST",
-            "value":"my first test :D in english :DD"
+            "key":"BUTTON_START_TEXT",
+            "value":"Start"
         },
         {
-            "key":"TEST_TWO",
-            "value":"my second teste :D, in english too :DDD"
+            "key":"BUTTON_CONFIG_TEXT",
+            "value":"Configurations"
+        },
+        {
+            "key":"BUTTON_EXIT_TEXT",
+            "value":"Exit"
+        },
+        {
+            "key":"MENU_NAME_CONFIG",
+            "value":"CONFIGURATIONS"
+        },
+        {
+            "key":"MENU_NAME_SELECT_CHAR",
+            "value":"SELECT YOUR CHARACTER"
+        },
+        {
+            "key":"MENU_NAME_SELECT_TRACK",
+            "value":"SELECT TRACK"
+        },
+        {
+            "key":"LAP_RECORD_LABEL",
+            "value":"Lap record:"
         }
     ]
 }

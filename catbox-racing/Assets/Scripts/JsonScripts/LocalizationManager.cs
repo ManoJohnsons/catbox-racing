@@ -137,4 +137,16 @@ public class LocalizationManager : MonoBehaviour
         _isFileFound = false;
         return false;
     }
+
+    public string GetTextForKey(string localizationKey)
+    {
+        if (_localizedDictionary.ContainsKey(localizationKey))
+        {
+            return _localizedDictionary[localizationKey];
+        }
+        else
+        {
+            return "Error: No key matching with " + localizationKey;
+        }
+    }
 }

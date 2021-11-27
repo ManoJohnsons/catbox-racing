@@ -39,6 +39,11 @@ public class LocalizationManager : MonoBehaviour
     }
     #endregion Instance Function
 
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -148,5 +153,36 @@ public class LocalizationManager : MonoBehaviour
         {
             return "Error: No key matching with " + localizationKey;
         }
+    }
+
+    IEnumerator SwitchLanguageRuntime(string langChoose)
+    {
+        if (!_isTryChangeLangRunTime)
+        {
+            _isTryChangeLangRunTime = true;
+            _isFileFound = false;
+            _isReady = false;
+            LANGUAGE_CHOOSE = langChoose;
+
+            FULL_NAME_TEXT_FILE = FILENAME_PREFIX + LANGUAGE_CHOOSE.ToLower() + FILE_EXTENSION;
+
+            FULL_PATH_TEXT_FILE = Path.Combine(Application.streamingAssetsPath, FULL_NAME_TEXT_FILE);
+
+            yield return StartCoroutine(LoadJsonLanguageData());
+            _isReady = true;
+
+            LocalizedText[] arrayText = Resources.FindObjectsOfTypeAll<LocalizedText>();
+
+            for(int i = 0; i < arrayText.Length; i++)
+            {
+                arrayText[i].AttributionText();
+            }
+            _isTryChangeLangRunTime = false;
+        }
+    }
+
+    public void ChangeLanguage(string lang)
+    {
+        StartCoroutine(SwitchLanguageRuntime(lang));
     }
 }

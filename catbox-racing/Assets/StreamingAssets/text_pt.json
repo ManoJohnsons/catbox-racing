@@ -1,8 +1,8 @@
 {
     "items": [
-        {
+{
             "key":"BUTTON_START_TEXT",
-            "value":"Iniciar"
+            "value":"Jogar"
         },
         {
             "key":"BUTTON_CONFIG_TEXT",
@@ -15,6 +15,102 @@
         {
             "key":"MENU_NAME_CONFIG",
             "value":"CONFIGURAÇÕES"
+        },
+        {
+            "key":"CONFIG_TAB_NAME_GENERAL",
+            "value":"Geral"
+        },
+        {
+            "key":"CONFIG_TAB_NAME_GRAPHICS",
+            "value":"Gráficos"
+        },
+        {
+            "key":"CONFIG_TAB_NAME_AUDIO",
+            "value":"Audio"
+        },
+        {
+            "key":"TEXT_DISPLAY_LANGUAGE",
+            "value":"Idioma"
+        },
+        {
+            "key":"LANGUAGE_NAME_TEXT",
+            "value":"Mudar idioma"
+        },
+        {
+            "key":"TEXT_DISPLAY_CONTROLS_SCHEME",
+            "value":"Controles"
+        },
+        {
+            "key":"SHOW_CONTROLS_TEXT",
+            "value":"Mostrar controles"
+        },
+        {
+            "key":"TEXT_DISPLAY_FPS",
+            "value":"Taxa de quadros"
+        },
+        {
+            "key":"BUTTON_NORMAL_FPS_TEXT",
+            "value":"Normal"
+        },
+        {
+            "key":"BUTTON_LOW_FPS_TEXT",
+            "value":"Baixa"
+        },
+        {
+            "key":"SUBMENU_HEADER_LANGUAGE",
+            "value":"Selecione seu idioma"
+        },
+        {
+            "key":"LANG_OPTION_EN",
+            "value":"Inglês"
+        },
+        {
+            "key":"LANG_OPTION_PT",
+            "value":"Português"
+        },
+        {
+            "key":"SUBMENU_HEADER_CONTROLS",
+            "value":"Controles"
+        },
+        {
+            "key":"DEVICE_NAME_GAMEPAD",
+            "value":"CONTROLE"
+        },
+        {
+            "key":"DEVICE_NAME_KEYBOARD",
+            "value":"TECLADO"
+        },
+        {
+            "key":"TEXT_DISPLAY_GRAPHICS",
+            "value":"Qualidade dos gráficos"
+        },
+        {
+            "key":"TEXT_DISPLAY_POST_PROCESSING",
+            "value":"Efeitos de Pos-Processamento"
+        },
+        {
+            "key":"BUTTON_OFF_POST_PROCESSING_TEXT",
+            "value":"Desligado"
+        },
+        {
+            "key":"BUTTON_ON_POST_PROCESSING_TEXT",
+            "value":"Ligado"
+        },
+        {
+            "key":"TEXT_DISPLAY_RESOLUTION",
+            "value":"Resolução da tela"
+        },
+        {
+            "key":"TEXT_DISPLAY_BGM",
+            "value":"Música de fundo"
+        },
+        {
+            "key":"TEXT_DISPLAY_SFX",
+            "value":"Efeitos sonoros"
+        },
+        {
+            "key":"BUTTON_BACK",
+            "value":"Voltar"
         },
         {
             "key":"MENU_NAME_SELECT_CHAR",

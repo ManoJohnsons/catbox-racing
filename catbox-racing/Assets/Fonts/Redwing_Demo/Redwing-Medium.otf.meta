@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cc928cd4cf53049429271cd4f7d3bd1a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Redwing
+  fontNames:
+  - Redwing
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: dae56f47106e1e947b3a2998a6f5c847, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

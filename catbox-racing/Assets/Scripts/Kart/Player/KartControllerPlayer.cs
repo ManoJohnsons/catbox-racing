@@ -22,6 +22,7 @@ public class KartControllerPlayer : MonoBehaviour
         playerInputActions.PlayerUI.Resume.performed += _ => PauseCondition();
 
         gameObject.transform.position = spawnPosition.position;
+        gameObject.transform.forward = spawnPosition.forward;
     }
 
     private void PauseCondition()

@@ -5525,6 +5525,55 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 425580016}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &426545176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426545177}
+  - component: {fileID: 426545178}
+  m_Layer: 0
+  m_Name: LoadCharacter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &426545177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426545176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1083421187}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &426545178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426545176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca66f5c4d8b8ec4bac2d3dd8f159879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterPrefabs:
+  - {fileID: 4734026546312090056, guid: 8f48113a99f671045852005bcbbd0127, type: 3}
+  - {fileID: 4734026546312090056, guid: dedc69c6a04cc8144aa078460e36c78e, type: 3}
+  - {fileID: 4734026546312090056, guid: a2515b0e52682e8489cff15769db7726, type: 3}
+  - {fileID: 4734026546312090056, guid: 793e4aa9fc4d91f42bf807ce0fd34f6e, type: 3}
+  spawnPoint: {fileID: 677158583}
 --- !u!1001 &432911025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10732,6 +10781,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7223322720259521403, guid: 33cb1a54206ac794b8c1ee4b5f549b68,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7675057756230739799, guid: 33cb1a54206ac794b8c1ee4b5f549b68,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -14274,6 +14328,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 117490519}
+  - {fileID: 426545177}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

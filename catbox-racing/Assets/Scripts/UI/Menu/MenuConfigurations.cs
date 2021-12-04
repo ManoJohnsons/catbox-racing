@@ -35,6 +35,7 @@ public class MenuConfigurations : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
     }
 
     public void GeneralConfigClicked()

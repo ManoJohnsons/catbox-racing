@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameCondition : MonoBehaviour
 {
@@ -23,14 +24,16 @@ public class GameCondition : MonoBehaviour
         if (lapComplete.GetLapsDone() == lapComplete.GetLapsMax())
         {
             //GameContinue
-            if(positionManager.GetCurrentPosition() == 1 || positionManager.GetCurrentPosition() == 2)
+            if(positionManager.GetCurrentPosition() == 1)
             {
                 gameTime.GameStop();
                 OnGameContinue?.Invoke(this, EventArgs.Empty);
             }
 
             //GameOver
-            if (positionManager.GetCurrentPosition() == 3 || positionManager.GetCurrentPosition() == 4)
+            if (positionManager.GetCurrentPosition() == 2 || 
+                positionManager.GetCurrentPosition() == 3 || 
+                positionManager.GetCurrentPosition() == 4)
             {
                 gameTime.GameStop();
                 OnGameTryAgain?.Invoke(this, EventArgs.Empty);
@@ -50,6 +53,21 @@ public class GameCondition : MonoBehaviour
         OnGameResume?.Invoke(this, EventArgs.Empty);
     }
 
+    public void GameRestart(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        gameTime.GameResume();
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
     public bool GetIsPaused()
     {
         return gameTime.GetIsPaused();

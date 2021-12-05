@@ -19,7 +19,6 @@ public class KartController : MonoBehaviour
     [Header("Função Move")]
     [SerializeField] private float reverseSpeed;
     [SerializeField] private float maxSpeed;
-    [SerializeField] private float boostSpeed;
     private float currentSpeed = 0;
     private float realSpeed;
 
@@ -52,10 +51,10 @@ public class KartController : MonoBehaviour
     {
         realSpeed = transform.InverseTransformDirection(rb.velocity).z;
 
-        if (fowardAmount > 0)
-            currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f);
-        else if (fowardAmount < 0)
-            currentSpeed = Mathf.Lerp(currentSpeed, -maxSpeed / reverseSpeed, 1f * Time.deltaTime);
+        if (fowardAmount > 0)      
+            currentSpeed = Mathf.Lerp(currentSpeed, maxSpeed, Time.deltaTime * 0.5f); 
+        else if (fowardAmount < 0)      
+            currentSpeed = Mathf.Lerp(currentSpeed, -maxSpeed / reverseSpeed, 1f * Time.deltaTime);     
         else
             currentSpeed = Mathf.Lerp(currentSpeed, 0, Time.deltaTime * 1.5f);
 
@@ -89,6 +88,7 @@ public class KartController : MonoBehaviour
             kartModel.Rotate(0, transform.eulerAngles.y, 0);
         }
     }
+
     public void Boost()
     {
         currentSpeed = currentSpeed * 2;

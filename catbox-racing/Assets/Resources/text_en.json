@@ -113,16 +113,76 @@
             "value":"Back"
         },
         {
-            "key":"MENU_NAME_SELECT_CHAR",
-            "value":"SELECT YOUR CHARACTER"
-        },
-        {
             "key":"MENU_NAME_SELECT_TRACK",
             "value":"SELECT TRACK"
         },
         {
-            "key":"LAP_RECORD_LABEL",
-            "value":"Lap record:"
+            "key":"TRACK_NAME_ONE",
+            "value":"Desert"
+        },
+        {
+            "key":"TRACK_NAME_TWO",
+            "value":"Jungle"
+        },
+        {
+            "key":"TRACK_NAME_ONE_REVERSED",
+            "value":"Desert (Reversed)"
+        },
+        {
+            "key":"TRACK_NAME_TWO_REVERSED",
+            "value":"Jungle (Reversed)"
+        },
+        {
+            "key":"BUTTON_PLAY",
+            "value":"Play"
+        },
+        {
+            "key":"WRONG_CHECKPOINT_TEXT",
+            "value":"WRONG WAY!"
+        },
+        {
+            "key":"LAP_DISPLAY",
+            "value":"LAP: "
+        },
+        {
+            "key":"GAME_OVER_TEXT",
+            "value":"GAME OVER!"
+        },
+        {
+            "key":"RESTART_BUTTON_TEXT",
+            "value":"Restart"
+        },
+        {
+            "key":"MAIN_MENU_TEXT",
+            "value":"Main Menu"
+        },
+        {
+            "key":"GAME_DONE_TEXT",
+            "value":"WELL DONE!"
+        },
+        {
+            "key":"CONTINUE_BUTTON_TEXT",
+            "value":"Next Track"
+        },
+        {
+            "key":"GAME_PAUSED_HEADER",
+            "value":"Game Paused"
+        },
+        {
+            "key":"RESUME_BUTTON_TEXT",
+            "value":"Resume"
+        },
+        {
+            "key":"RESTART_BUTTON_PAUSED_TEXT",
+            "value":"Restart Race"
+        },
+        {
+            "key":"MAIN_MENU_BUTTON_PAUSED_TEXT",
+            "value":"Go to main menu"
+        },
+        {
+            "key":"CLOSE_GAME_BUTTON_PAUSED_TEXT",
+            "value":"Close game"
         }
     ]
 }

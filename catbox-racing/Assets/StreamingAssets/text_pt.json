@@ -6,7 +6,7 @@
         },
         {
             "key":"BUTTON_CONFIG_TEXT",
-            "value":"Configurações"
+            "value":"Configuracoes"
         },
         {
             "key":"BUTTON_EXIT_TEXT",
@@ -14,7 +14,7 @@
         },
         {
             "key":"MENU_NAME_CONFIG",
-            "value":"CONFIGURAÇÕES"
+            "value":"CONFIGURACOES"
         },
         {
             "key":"CONFIG_TAB_NAME_GENERAL",
@@ -22,7 +22,7 @@
         },
         {
             "key":"CONFIG_TAB_NAME_GRAPHICS",
-            "value":"Gráficos"
+            "value":"Graficos"
         },
         {
             "key":"CONFIG_TAB_NAME_AUDIO",
@@ -62,11 +62,11 @@
         },
         {
             "key":"LANG_OPTION_EN",
-            "value":"Inglês"
+            "value":"Ingles"
         },
         {
             "key":"LANG_OPTION_PT",
-            "value":"Português"
+            "value":"Portugues"
         },
         {
             "key":"SUBMENU_HEADER_CONTROLS",
@@ -82,7 +82,7 @@
         },
         {
             "key":"TEXT_DISPLAY_GRAPHICS",
-            "value":"Qualidade dos gráficos"
+            "value":"Qualidade dos graficos"
         },
         {
             "key":"TEXT_DISPLAY_POST_PROCESSING",
@@ -98,11 +98,11 @@
         },
         {
             "key":"TEXT_DISPLAY_RESOLUTION",
-            "value":"Resolução da tela"
+            "value":"Resolucao da tela"
         },
         {
             "key":"TEXT_DISPLAY_BGM",
-            "value":"Música de fundo"
+            "value":"Musica de fundo"
         },
         {
             "key":"TEXT_DISPLAY_SFX",
@@ -113,16 +113,76 @@
             "value":"Voltar"
         },
         {
-            "key":"MENU_NAME_SELECT_CHAR",
-            "value":"SELECIONE SEU PERSONAGEM"
-        },
-        {
             "key":"MENU_NAME_SELECT_TRACK",
             "value":"SELECIONE A PISTA"
         },
         {
-            "key":"LAP_RECORD_LABEL",
-            "value":"Melhor tempo:"
+            "key":"TRACK_NAME_ONE",
+            "value":"Deserto"
+        },
+        {
+            "key":"TRACK_NAME_TWO",
+            "value":"Selva"
+        },
+        {
+            "key":"TRACK_NAME_ONE_REVERSED",
+            "value":"Deserto (Invertido)"
+        },
+        {
+            "key":"TRACK_NAME_TWO_REVERSED",
+            "value":"Selva (Invertido)"
+        },
+        {
+            "key":"BUTTON_PLAY",
+            "value":"Jogar"
+        },
+        {
+            "key":"WRONG_CHECKPOINT_TEXT",
+            "value":"CAMINHO ERRADO!"
+        },
+        {
+            "key":"LAP_DISPLAY",
+            "value":"Volta: "
+        },
+        {
+            "key":"GAME_OVER_TEXT",
+            "value":"FIM DE JOGO!"
+        },
+        {
+            "key":"RESTART_BUTTON_TEXT",
+            "value":"Reiniciar"
+        },
+        {
+            "key":"MAIN_MENU_TEXT",
+            "value":"Menu Principal"
+        },
+        {
+            "key":"GAME_DONE_TEXT",
+            "value":"ISSO AÍ!"
+        },
+        {
+            "key":"CONTINUE_BUTTON_TEXT",
+            "value":"Proxima corrida"
+        },
+        {
+            "key":"GAME_PAUSED_HEADER",
+            "value":"Jogo pausado"
+        },
+        {
+            "key":"RESUME_BUTTON_TEXT",
+            "value":"Continuar"
+        },
+        {
+            "key":"RESTART_BUTTON_PAUSED_TEXT",
+            "value":"Reiniciar corrida"
+        },
+        {
+            "key":"MAIN_MENU_BUTTON_PAUSED_TEXT",
+            "value":"Ir para o menu principal"
+        },
+        {
+            "key":"CLOSE_GAME_BUTTON_PAUSED_TEXT",
+            "value":"Fechar o jogo"
         }
     ]
 }

@@ -9,6 +9,7 @@ public class KartControlActive : MonoBehaviour
         foreach (var kart in kartsControllers)
         {
             kart.enabled = true;
+            kart.GetComponent<AudioSource>().Play();
         }
     }
 }

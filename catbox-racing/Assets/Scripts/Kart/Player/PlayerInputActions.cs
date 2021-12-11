@@ -238,7 +238,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Resume"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""c3d06e41-6ec6-42c6-a755-8ea49784e4a7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

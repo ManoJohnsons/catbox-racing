@@ -43,4 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0915bef4e4a1bd45ae471a4f274ef0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Countdown
+    clip: {fileID: 8300000, guid: e0fab01fd8e207048b2e8fbf5036fd1c, type: 3}
+    audioGroup: {fileID: -8809487917996329901, guid: d409a73128cadd34eb62497992cd44a3,
+      type: 2}
+    volume: 1
+    pitch: 2
+    loop: 0
+    source: {fileID: 0}
+  - name: GO
+    clip: {fileID: 8300000, guid: 66676ccb7613d394085d3382eba145b9, type: 3}
+    audioGroup: {fileID: -8809487917996329901, guid: d409a73128cadd34eb62497992cd44a3,
+      type: 2}
+    volume: 1
+    pitch: 2
+    loop: 0
+    source: {fileID: 0}

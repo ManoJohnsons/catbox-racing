@@ -84,7 +84,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reverseSpeed: 1.75
   maxSpeed: 30
-  boostSpeed: 0
   kartModel: {fileID: 442385236129322607}
 --- !u!114 &5750986432534612763
 MonoBehaviour:
@@ -343,7 +342,7 @@ Transform:
   m_GameObject: {fileID: 2989343702775531598}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1, z: -0}
-  m_LocalScale: {x: 6, y: 6, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 0}
   m_Children: []
   m_Father: {fileID: 928807721194491227}
   m_RootOrder: 1

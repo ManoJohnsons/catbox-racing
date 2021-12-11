@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: UIBUTTONTEXT-RedwingLight
+  m_Name: RedwingLight
   m_EditorClassIdentifier: 
-  hashCode: 1382399200
+  hashCode: 830186490
   material: {fileID: 8033910431748846365}
-  materialHashCode: -1166208192
+  materialHashCode: 320511514
   m_Version: 1.1.0
   m_SourceFontFileGUID: dae56f47106e1e947b3a2998a6f5c847
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: dae56f47106e1e947b3a2998a6f5c847,

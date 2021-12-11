@@ -371,7 +371,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reverseSpeed: 1.75
   maxSpeed: 30
-  boostSpeed: 60
   kartModel: {fileID: 8096285180328271543}
 --- !u!114 &132947048
 MonoBehaviour:
@@ -385,6 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53c2802c511014499b2789de5680fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCondition: {fileID: 0}
+  spawnPosition: {fileID: 0}
 --- !u!114 &253200944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,54 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDistance: 0
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  playerPoints: []
   positionManager: {fileID: 0}
 --- !u!114 &5548895872043908787
 MonoBehaviour:
@@ -598,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 8681511937781431530}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 0}
   m_Children: []
   m_Father: {fileID: 4840333873246176838}
   m_RootOrder: 2

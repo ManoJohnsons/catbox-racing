@@ -206,7 +206,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""7a79e4ce-444b-4d75-aa63-5680fef1db9a"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -214,7 +214,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Submit"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""8f57e0dc-ea5f-4ace-b12a-2a090cce3977"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -222,7 +222,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Cancel"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""d0067ab1-9fa5-477f-a64a-45ca2904b108"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -238,9 +238,41 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Resume"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""c3d06e41-6ec6-42c6-a755-8ea49784e4a7"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightClick"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""e174ee87-1244-4a87-bd87-dc4242331d3f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MiddleClick"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""6371e13d-bde0-4a4e-9cc2-3138cf6a6312"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ScrollWheel"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b1f7efdf-8b0e-414f-94e8-03f9d96098bf"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""9f4e7aec-eccd-4dd3-baf9-1e048d956870"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -520,6 +552,72 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Resume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""757f1924-facb-43bf-a11a-e430ae866058"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88396529-8590-4850-afc2-aa27bc62156d"",
+                    ""path"": ""<Pen>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73f822cf-6bb7-471f-b807-7a8085e6354a"",
+                    ""path"": ""<Touchscreen>/touch*/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touch"",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b57889cd-98c5-4de2-82b3-b234e3577460"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ScrollWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8697925c-cb03-447e-9910-fc9e582be943"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""MiddleClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""472238f0-47da-4d51-b460-c651b35069be"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -566,6 +664,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerUI_Cancel = m_PlayerUI.FindAction("Cancel", throwIfNotFound: true);
         m_PlayerUI_Click = m_PlayerUI.FindAction("Click", throwIfNotFound: true);
         m_PlayerUI_Resume = m_PlayerUI.FindAction("Resume", throwIfNotFound: true);
+        m_PlayerUI_RightClick = m_PlayerUI.FindAction("RightClick", throwIfNotFound: true);
+        m_PlayerUI_MiddleClick = m_PlayerUI.FindAction("MiddleClick", throwIfNotFound: true);
+        m_PlayerUI_ScrollWheel = m_PlayerUI.FindAction("ScrollWheel", throwIfNotFound: true);
+        m_PlayerUI_Point = m_PlayerUI.FindAction("Point", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -669,6 +771,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerUI_Cancel;
     private readonly InputAction m_PlayerUI_Click;
     private readonly InputAction m_PlayerUI_Resume;
+    private readonly InputAction m_PlayerUI_RightClick;
+    private readonly InputAction m_PlayerUI_MiddleClick;
+    private readonly InputAction m_PlayerUI_ScrollWheel;
+    private readonly InputAction m_PlayerUI_Point;
     public struct PlayerUIActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -678,6 +784,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Cancel => m_Wrapper.m_PlayerUI_Cancel;
         public InputAction @Click => m_Wrapper.m_PlayerUI_Click;
         public InputAction @Resume => m_Wrapper.m_PlayerUI_Resume;
+        public InputAction @RightClick => m_Wrapper.m_PlayerUI_RightClick;
+        public InputAction @MiddleClick => m_Wrapper.m_PlayerUI_MiddleClick;
+        public InputAction @ScrollWheel => m_Wrapper.m_PlayerUI_ScrollWheel;
+        public InputAction @Point => m_Wrapper.m_PlayerUI_Point;
         public InputActionMap Get() { return m_Wrapper.m_PlayerUI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -702,6 +812,18 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Resume.started -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnResume;
                 @Resume.performed -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnResume;
                 @Resume.canceled -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnResume;
+                @RightClick.started -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnRightClick;
+                @RightClick.performed -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnRightClick;
+                @RightClick.canceled -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnRightClick;
+                @MiddleClick.started -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnMiddleClick;
+                @MiddleClick.performed -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnMiddleClick;
+                @MiddleClick.canceled -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnMiddleClick;
+                @ScrollWheel.started -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnScrollWheel;
+                @ScrollWheel.performed -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnScrollWheel;
+                @ScrollWheel.canceled -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnScrollWheel;
+                @Point.started -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnPoint;
+                @Point.performed -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnPoint;
+                @Point.canceled -= m_Wrapper.m_PlayerUIActionsCallbackInterface.OnPoint;
             }
             m_Wrapper.m_PlayerUIActionsCallbackInterface = instance;
             if (instance != null)
@@ -721,6 +843,18 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Resume.started += instance.OnResume;
                 @Resume.performed += instance.OnResume;
                 @Resume.canceled += instance.OnResume;
+                @RightClick.started += instance.OnRightClick;
+                @RightClick.performed += instance.OnRightClick;
+                @RightClick.canceled += instance.OnRightClick;
+                @MiddleClick.started += instance.OnMiddleClick;
+                @MiddleClick.performed += instance.OnMiddleClick;
+                @MiddleClick.canceled += instance.OnMiddleClick;
+                @ScrollWheel.started += instance.OnScrollWheel;
+                @ScrollWheel.performed += instance.OnScrollWheel;
+                @ScrollWheel.canceled += instance.OnScrollWheel;
+                @Point.started += instance.OnPoint;
+                @Point.performed += instance.OnPoint;
+                @Point.canceled += instance.OnPoint;
             }
         }
     }
@@ -756,5 +890,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnResume(InputAction.CallbackContext context);
+        void OnRightClick(InputAction.CallbackContext context);
+        void OnMiddleClick(InputAction.CallbackContext context);
+        void OnScrollWheel(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
     }
 }

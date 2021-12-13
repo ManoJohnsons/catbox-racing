@@ -21,11 +21,13 @@ public class GameStates : MonoBehaviour
     private void GameCondition_OnGameResume(object sender, System.EventArgs e)
     {
         pausedScreen.SetActive(false);
+        AudioListener.pause = false;
     }
 
     private void GameCondition_OnGamePaused(object sender, System.EventArgs e)
     {
         pausedScreen.SetActive(true);
+        AudioListener.pause = true;
     }
 
     private void GameCondition_OnGameTryAgain(object sender, System.EventArgs e)

@@ -45,10 +45,4 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

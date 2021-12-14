@@ -39,13 +39,13 @@ public class MenuTrackSelection : MonoBehaviour
                 SceneManager.LoadScene("TrackOne");
                 break;
             case 1:
-                //SceneManager.LoadScene(); Track Two
+                SceneManager.LoadScene("TrackTwo");
                 break;
             case 2:
-                //SceneManager.LoadScene(); Track One - Reversed
+                SceneManager.LoadScene("TrackOne_Reversed");
                 break;
             case 3:
-                //SceneManager.LoadScene(); Track Two - Reversed
+                //SceneManager.LoadScene("TrackOne");
                 break;
         }
     }

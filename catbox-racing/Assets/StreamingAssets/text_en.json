@@ -1,0 +1,188 @@
+{
+    "items": [
+        {
+            "key":"BUTTON_START_TEXT",
+            "value":"Start"
+        },
+        {
+            "key":"BUTTON_CONFIG_TEXT",
+            "value":"Configurations"
+        },
+        {
+            "key":"BUTTON_EXIT_TEXT",
+            "value":"Exit"
+        },
+        {
+            "key":"MENU_NAME_CONFIG",
+            "value":"CONFIGURATIONS"
+        },
+        {
+            "key":"CONFIG_TAB_NAME_GENERAL",
+            "value":"General"
+        },
+        {
+            "key":"CONFIG_TAB_NAME_GRAPHICS",
+            "value":"Graphics"
+        },
+        {
+            "key":"CONFIG_TAB_NAME_AUDIO",
+            "value":"Audio"
+        },
+        {
+            "key":"TEXT_DISPLAY_LANGUAGE",
+            "value":"Language"
+        },
+        {
+            "key":"LANGUAGE_NAME_TEXT",
+            "value":"Change language"
+        },
+        {
+            "key":"TEXT_DISPLAY_CONTROLS_SCHEME",
+            "value":"Controls scheme"
+        },
+        {
+            "key":"SHOW_CONTROLS_TEXT",
+            "value":"Show controls"
+        },
+        {
+            "key":"TEXT_DISPLAY_FPS",
+            "value":"FPS-Rate"
+        },
+        {
+            "key":"BUTTON_NORMAL_FPS_TEXT",
+            "value":"Normal"
+        },
+        {
+            "key":"BUTTON_LOW_FPS_TEXT",
+            "value":"Low"
+        },
+        {
+            "key":"SUBMENU_HEADER_LANGUAGE",
+            "value":"Select your language"
+        },
+        {
+            "key":"LANG_OPTION_EN",
+            "value":"English"
+        },
+        {
+            "key":"LANG_OPTION_PT",
+            "value":"Portuguese"
+        },
+        {
+            "key":"SUBMENU_HEADER_CONTROLS",
+            "value":"Controls"
+        },
+        {
+            "key":"DEVICE_NAME_GAMEPAD",
+            "value":"GAMEPAD"
+        },
+        {
+            "key":"DEVICE_NAME_KEYBOARD",
+            "value":"KEYBOARD"
+        },
+        {
+            "key":"TEXT_DISPLAY_GRAPHICS",
+            "value":"Graphics Quality"
+        },
+        {
+            "key":"TEXT_DISPLAY_POST_PROCESSING",
+            "value":"Post-Processing Efects"
+        },
+        {
+            "key":"BUTTON_OFF_POST_PROCESSING_TEXT",
+            "value":"Off"
+        },
+        {
+            "key":"BUTTON_ON_POST_PROCESSING_TEXT",
+            "value":"On"
+        },
+        {
+            "key":"TEXT_DISPLAY_RESOLUTION",
+            "value":"Screen resolution"
+        },
+        {
+            "key":"TEXT_DISPLAY_BGM",
+            "value":"BGM"
+        },
+        {
+            "key":"TEXT_DISPLAY_SFX",
+            "value":"SFX"
+        },
+        {
+            "key":"BUTTON_BACK",
+            "value":"Back"
+        },
+        {
+            "key":"MENU_NAME_SELECT_TRACK",
+            "value":"SELECT TRACK"
+        },
+        {
+            "key":"TRACK_NAME_ONE",
+            "value":"Desert"
+        },
+        {
+            "key":"TRACK_NAME_TWO",
+            "value":"Jungle"
+        },
+        {
+            "key":"TRACK_NAME_ONE_REVERSED",
+            "value":"Desert (Reversed)"
+        },
+        {
+            "key":"TRACK_NAME_TWO_REVERSED",
+            "value":"Jungle (Reversed)"
+        },
+        {
+            "key":"BUTTON_PLAY",
+            "value":"Play"
+        },
+        {
+            "key":"WRONG_CHECKPOINT_TEXT",
+            "value":"WRONG WAY!"
+        },
+        {
+            "key":"LAP_DISPLAY",
+            "value":"LAP: "
+        },
+        {
+            "key":"GAME_OVER_TEXT",
+            "value":"GAME OVER!"
+        },
+        {
+            "key":"RESTART_BUTTON_TEXT",
+            "value":"Restart"
+        },
+        {
+            "key":"MAIN_MENU_TEXT",
+            "value":"Main Menu"
+        },
+        {
+            "key":"GAME_DONE_TEXT",
+            "value":"WELL DONE!"
+        },
+        {
+            "key":"CONTINUE_BUTTON_TEXT",
+            "value":"Next Track"
+        },
+        {
+            "key":"GAME_PAUSED_HEADER",
+            "value":"Game Paused"
+        },
+        {
+            "key":"RESUME_BUTTON_TEXT",
+            "value":"Resume"
+        },
+        {
+            "key":"RESTART_BUTTON_PAUSED_TEXT",
+            "value":"Restart Race"
+        },
+        {
+            "key":"MAIN_MENU_BUTTON_PAUSED_TEXT",
+            "value":"Go to main menu"
+        },
+        {
+            "key":"CLOSE_GAME_BUTTON_PAUSED_TEXT",
+            "value":"Close game"
+        }
+    ]
+}

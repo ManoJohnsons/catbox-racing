@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502655, g: 0.37139302, b: 0.49600938, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502667, g: 0.37139323, b: 0.49600998, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2670,17 +2670,14 @@ MonoBehaviour:
   - {fileID: 1986326931}
   - {fileID: 1011339957}
   - {fileID: 1287885243}
-  - {fileID: 1605757728}
   selectedTrackImages:
   - {fileID: 1849918510}
   - {fileID: 118195615}
   - {fileID: 1320987585}
-  - {fileID: 1337560414}
   trackNames:
   - {fileID: 2060843768}
   - {fileID: 2137394046}
   - {fileID: 1935616264}
-  - {fileID: 102986269}
   selectedTrack: 0
 --- !u!1 &387387280
 GameObject:

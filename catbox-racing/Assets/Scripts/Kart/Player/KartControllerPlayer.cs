@@ -46,7 +46,7 @@ public class KartControllerPlayer : MonoBehaviour
         //Movimento
         Vector2 inputVector = playerInputActions.KartMove.Movement.ReadValue<Vector2>();
         float fowardAmount = inputVector.y;
-        float turnAmount = inputVector.x;
+        float turnAmount = inputVector.x * 2f;
         kartController.SetFowardAmount(fowardAmount);
         kartController.SetTurnAmount(turnAmount);
 

@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 1, g: 0.49457017, b: 0.16509432, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.05
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.42142662, g: 0.24818398, b: 0.00056291313, a: 1}
+  m_IndirectSpecularColor: {r: 0.42142612, g: 0.24818368, b: 0.00056291383, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5035,7 +5035,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 139129819}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1083421189}
+        m_MethodName: NextScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &139129819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25968,11 +25979,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1221482734, guid: 33cb1a54206ac794b8c1ee4b5f549b68, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000042902393
+      value: -0.0000000042902384
       objectReference: {fileID: 0}
     - target: {fileID: 1221482734, guid: 33cb1a54206ac794b8c1ee4b5f549b68, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -3.1237266e-10
+      value: 3.1237257e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1135576573178069808, guid: 33cb1a54206ac794b8c1ee4b5f549b68,
         type: 3}
@@ -36972,7 +36983,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1029773223}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1083421189}
+        m_MethodName: GameRestart
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TrackOne
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1029773223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39884,8 +39906,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 54.99997, y: 0}
-  m_SizeDelta: {x: 60, y: 50}
+  m_AnchoredPosition: {x: 70.32, y: 0}
+  m_SizeDelta: {x: 90.64194, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1129269754
 MonoBehaviour:
@@ -48631,7 +48653,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1406407469}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1083421189}
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1406407469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54519,7 +54552,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580741155}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -54528,7 +54561,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: c763c3a9c0debd344918e66d8f26ee2e, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 4431bc137b99a5b4ca22c9cac3c11de8, type: 2}
 --- !u!4 &1580741157
 Transform:
   m_ObjectHideFlags: 0
@@ -59112,7 +59145,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.07261786, y: 0.0000000042902393, z: -3.1237266e-10, w: 0.9973599}
+  m_LocalRotation: {x: 0.07261786, y: -0.0000000042902384, z: 3.1237257e-10, w: 0.9973599}
   m_LocalPosition: {x: 53, y: 2.35, z: 117.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -68380,7 +68413,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1944559814}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1083421189}
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1944559814
 MonoBehaviour:
   m_ObjectHideFlags: 0

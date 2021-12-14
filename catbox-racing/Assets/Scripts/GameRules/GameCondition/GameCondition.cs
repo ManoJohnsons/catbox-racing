@@ -53,6 +53,12 @@ public class GameCondition : MonoBehaviour
         OnGameResume?.Invoke(this, EventArgs.Empty);
     }
 
+    public void NextScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        gameTime.GameResume();
+    }
+
     public void GameRestart(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

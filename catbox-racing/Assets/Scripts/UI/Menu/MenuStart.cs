@@ -6,6 +6,12 @@ public class MenuStart : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    private void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("MenuMusic");
+    }
+
     public void CloseGame()
     {
         Application.Quit();

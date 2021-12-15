@@ -81,6 +81,30 @@
             "value":"KEYBOARD"
         },
         {
+            "key":"SPACE_KEY_TEXT",
+            "value":"Boost"
+        },
+        {
+            "key":"S_KEY_TEXT",
+            "value":"Reverse"
+        },
+        {
+            "key":"A_KEY_TEXT",
+            "value":"Turn left"
+        },
+        {
+            "key":"W_KEY_TEXT",
+            "value":"Accelerate"
+        },
+        {
+            "key":"D_KEY_TEXT",
+            "value":"Turn right"
+        },
+        {
+            "key":"SPACE_TEXT",
+            "value":"SPACE"
+        },
+        {
             "key":"TEXT_DISPLAY_GRAPHICS",
             "value":"Graphics Quality"
         },
@@ -118,19 +142,19 @@
         },
         {
             "key":"TRACK_NAME_ONE",
-            "value":"Desert"
+            "value":"Sandora"
         },
         {
             "key":"TRACK_NAME_TWO",
-            "value":"Jungle"
+            "value":"Everwinter"
         },
         {
             "key":"TRACK_NAME_ONE_REVERSED",
-            "value":"Desert (Reversed)"
+            "value":"Sandora (Reversed)"
         },
         {
             "key":"TRACK_NAME_TWO_REVERSED",
-            "value":"Jungle (Reversed)"
+            "value":"Everwinter (Reversed)"
         },
         {
             "key":"BUTTON_PLAY",

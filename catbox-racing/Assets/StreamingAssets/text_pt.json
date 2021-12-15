@@ -81,6 +81,30 @@
             "value":"TECLADO"
         },
         {
+            "key":"SPACE_KEY_TEXT",
+            "value":"Nitro"
+        },
+        {
+            "key":"S_KEY_TEXT",
+            "value":"Re"
+        },
+        {
+            "key":"A_KEY_TEXT",
+            "value":"Virar para a esquerda"
+        },
+        {
+            "key":"W_KEY_TEXT",
+            "value":"Acelerar"
+        },
+        {
+            "key":"D_KEY_TEXT",
+            "value":"Virar para a direita"
+        },
+        {
+            "key":"SPACE_TEXT",
+            "value":"ESPACO"
+        },
+        {
             "key":"TEXT_DISPLAY_GRAPHICS",
             "value":"Qualidade dos graficos"
         },
@@ -118,19 +142,19 @@
         },
         {
             "key":"TRACK_NAME_ONE",
-            "value":"Deserto"
+            "value":"Sandora"
         },
         {
             "key":"TRACK_NAME_TWO",
-            "value":"Selva"
+            "value":"Everwinter"
         },
         {
             "key":"TRACK_NAME_ONE_REVERSED",
-            "value":"Deserto (Invertido)"
+            "value":"Sandora (Invertido)"
         },
         {
             "key":"TRACK_NAME_TWO_REVERSED",
-            "value":"Selva (Invertido)"
+            "value":"Everwinter (Invertido)"
         },
         {
             "key":"BUTTON_PLAY",

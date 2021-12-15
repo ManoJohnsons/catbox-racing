@@ -60,3 +60,51 @@ MonoBehaviour:
     pitch: 2
     loop: 0
     source: {fileID: 0}
+  - name: DesertDay
+    clip: {fileID: 8300000, guid: 7dbee188f1eff3f4c9f76047d9ad6d3b, type: 3}
+    audioGroup: {fileID: -1302242291901405967, guid: d409a73128cadd34eb62497992cd44a3,
+      type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: DesertNIght
+    clip: {fileID: 8300000, guid: 6b44344c3b6c50a41add74cf42e60fb4, type: 3}
+    audioGroup: {fileID: -1302242291901405967, guid: d409a73128cadd34eb62497992cd44a3,
+      type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: WinterDay
+    clip: {fileID: 8300000, guid: 1797a378be419aa47b352d3adc52c65d, type: 3}
+    audioGroup: {fileID: -1302242291901405967, guid: d409a73128cadd34eb62497992cd44a3,
+      type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: WinterNight
+    clip: {fileID: 8300000, guid: aa36e8cd6bbd33746b47984a5307cbcf, type: 3}
+    audioGroup: {fileID: -1302242291901405967, guid: d409a73128cadd34eb62497992cd44a3,
+      type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: MenuMusic
+    clip: {fileID: 8300000, guid: 0ce68b0559fc29d45afb9691948e54d5, type: 3}
+    audioGroup: {fileID: -1302242291901405967, guid: d409a73128cadd34eb62497992cd44a3,
+      type: 2}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: SelectTrackMusic
+    clip: {fileID: 8300000, guid: 93260aece17e0fe4487eaa135cadbf01, type: 3}
+    audioGroup: {fileID: -1302242291901405967, guid: d409a73128cadd34eb62497992cd44a3,
+      type: 2}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

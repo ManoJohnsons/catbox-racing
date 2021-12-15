@@ -7,7 +7,9 @@ public class Countdown : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countdown;
     [SerializeField] private GameObject kartControl;
     [SerializeField] private GameObject[] UIElements;
+    public string nameTrackMusic;
     private TimerManager timerManager;
+
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class Countdown : MonoBehaviour
         ActiveUI();
         kartControl.SetActive(true);
         timerManager.enabled = true;
+        FindObjectOfType<AudioManager>().Play(nameTrackMusic);
     }
 
     private void ActiveUI()

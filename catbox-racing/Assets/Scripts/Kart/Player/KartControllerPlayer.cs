@@ -25,6 +25,13 @@ public class KartControllerPlayer : MonoBehaviour
         gameObject.transform.forward = spawnPosition.forward;
     }
 
+    public void ResumeCondition()
+    {
+        playerInputActions.KartMove.Enable();
+        playerInputActions.PlayerUI.Disable();
+        AudioListener.pause = false;
+    }
+
     private void PauseCondition()
     {
         if (gameCondition.GetIsPaused())

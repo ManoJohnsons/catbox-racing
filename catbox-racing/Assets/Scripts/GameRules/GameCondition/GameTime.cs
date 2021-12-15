@@ -2,7 +2,7 @@
 
 public class GameTime : MonoBehaviour
 {
-    private bool isPaused;
+    private bool isPaused = false;
 
     public void GameStop()
     {

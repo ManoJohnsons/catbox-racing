@@ -15,6 +15,19 @@ public class MenuTrackSelection : MonoBehaviour
         selectedTrackImages[selectedTrack].gameObject.SetActive(true);
         trackNames[selectedTrack].gameObject.SetActive(true);
     }
+
+    private void OnEnable()
+    {
+        FindObjectOfType<AudioManager>().Play("SelectTrackMusic");
+        FindObjectOfType<AudioManager>().Stop("MenuMusic");
+    }
+
+    private void OnDisable()
+    {
+        FindObjectOfType<AudioManager>().Play("MenuMusic");
+        FindObjectOfType<AudioManager>().Stop("SelectTrackMusic");
+    }
+
     public void NextTrack()
     {
         DeactiveUI();
@@ -33,6 +46,7 @@ public class MenuTrackSelection : MonoBehaviour
 
     public void PlayTrack()
     {
+        FindObjectOfType<AudioManager>().Stop("SelectTrackMusic");
         switch (selectedTrack)
         {
             case 0:
@@ -45,7 +59,7 @@ public class MenuTrackSelection : MonoBehaviour
                 SceneManager.LoadScene("TrackOne_Reversed");
                 break;
             case 3:
-                //SceneManager.LoadScene("TrackOne");
+                SceneManager.LoadScene("TrackTwo_Reversed");
                 break;
         }
     }

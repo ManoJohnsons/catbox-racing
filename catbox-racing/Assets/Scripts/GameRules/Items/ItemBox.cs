@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class ItemBox : MonoBehaviour
 {
@@ -9,15 +10,28 @@ public class ItemBox : MonoBehaviour
             if(other.GetComponent<KartItem>().heldItem == -1 && other.GetComponent<KartItem>().canPickup)
             {
                 other.GetComponent<KartItem>().StartPickup();
-                gameObject.SetActive(false);
+                gameObject.GetComponent<SphereCollider>().enabled = false;
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                StartCoroutine(RespawningItem());
             }
 
-            gameObject.SetActive(false);
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            StartCoroutine(RespawningItem());
         }
 
         if (other.gameObject.CompareTag("KartAgent"))
         {
-            gameObject.SetActive(false);
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            StartCoroutine(RespawningItem());
         }
+    }
+
+    IEnumerator RespawningItem()
+    {
+        yield return new WaitForSeconds(2.5f);
+        gameObject.GetComponent<SphereCollider>().enabled = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 }

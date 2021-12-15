@@ -10,6 +10,7 @@ public class GameCondition : MonoBehaviour
     public event EventHandler OnGameResume;
 
     [SerializeField] private LapComplete lapComplete;
+    private string trackNameSong;
     private PositionManager positionManager;
     private GameTime gameTime;
 
@@ -17,6 +18,7 @@ public class GameCondition : MonoBehaviour
     {
         positionManager = GetComponent<PositionManager>();
         gameTime = GetComponent<GameTime>();
+        trackNameSong = GetComponent<Countdown>().nameTrackMusic;
     }
 
     public void GameEnd()
@@ -61,12 +63,17 @@ public class GameCondition : MonoBehaviour
 
     public void GameRestart(string sceneName)
     {
+        FindObjectOfType<AudioManager>().Stop(trackNameSong);
+        AudioListener.pause = false;
         SceneManager.LoadScene(sceneName);
         gameTime.GameResume();
     }
 
     public void LoadMenu()
     {
+        FindObjectOfType<AudioManager>().Stop(trackNameSong);
+        AudioListener.pause = false;
+        FindObjectOfType<AudioManager>().Play("MenuMusic");
         SceneManager.LoadScene("StartMenu");
     }
 

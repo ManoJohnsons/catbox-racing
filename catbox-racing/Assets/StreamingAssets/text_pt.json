@@ -77,6 +77,26 @@
             "value":"CONTROLE"
         },
         {
+            "key":"LEFT_TRIGGER_TEXT",
+            "value":"Re"
+        },
+        {
+            "key":"LEFT_ANALOGIC_TEXT",
+            "value":"Virar"
+        },
+        {
+            "key":"START_BUTTON_TEXT",
+            "value":"Pausar"
+        },
+        {
+            "key":"WEST_BUTTON_TEXT",
+            "value":"Nitro"
+        },
+        {
+            "key":"RIGHT_TRIGGER_TEXT",
+            "value":"Acelerar"
+        },
+        {
             "key":"DEVICE_NAME_KEYBOARD",
             "value":"TECLADO"
         },

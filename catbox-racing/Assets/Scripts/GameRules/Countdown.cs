@@ -9,15 +9,18 @@ public class Countdown : MonoBehaviour
     [SerializeField] private GameObject[] UIElements;
     public string nameTrackMusic;
     private TimerManager timerManager;
+    private GameTime gameTime;
 
 
     private void Awake()
     {
         timerManager = GetComponent<TimerManager>();
+        gameTime = GetComponent<GameTime>();
     }
 
     void Start()
     {
+        gameTime.GameResume();
         StartCoroutine(CountdownStart());
     }
 

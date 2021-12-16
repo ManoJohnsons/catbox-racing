@@ -57,8 +57,10 @@ public class GameCondition : MonoBehaviour
 
     public void NextScene(string sceneName)
     {
+        FindObjectOfType<AudioManager>().Stop(trackNameSong);
+        AudioListener.pause = false;
         SceneManager.LoadScene(sceneName);
-        gameTime.GameResume();
+        //gameTime.GameResume();
     }
 
     public void GameRestart(string sceneName)

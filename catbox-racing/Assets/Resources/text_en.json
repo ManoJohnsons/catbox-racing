@@ -77,6 +77,26 @@
             "value":"GAMEPAD"
         },
         {
+            "key":"LEFT_TRIGGER_TEXT",
+            "value":"Reverse"
+        },
+        {
+            "key":"LEFT_ANALOGIC_TEXT",
+            "value":"Turn"
+        },
+        {
+            "key":"START_BUTTON_TEXT",
+            "value":"Pause"
+        },
+        {
+            "key":"WEST_BUTTON_TEXT",
+            "value":"Boost"
+        },
+        {
+            "key":"RIGHT_TRIGGER_TEXT",
+            "value":"Accelerate"
+        },
+        {
             "key":"DEVICE_NAME_KEYBOARD",
             "value":"KEYBOARD"
         },

@@ -7,12 +7,14 @@ public class MenuTrackSelection : MonoBehaviour
 {
     public GameObject[] tracks;
     public Image[] selectedTrackImages;
+    public Image[] trackImages;
     public TextMeshProUGUI[] trackNames;
     public int selectedTrack = 0;
 
     private void Awake()
     {
         selectedTrackImages[selectedTrack].gameObject.SetActive(true);
+        trackImages[selectedTrack].gameObject.SetActive(true);
         trackNames[selectedTrack].gameObject.SetActive(true);
     }
 
@@ -67,6 +69,7 @@ public class MenuTrackSelection : MonoBehaviour
     {
         tracks[selectedTrack].SetActive(true);
         selectedTrackImages[selectedTrack].gameObject.SetActive(true);
+        trackImages[selectedTrack].gameObject.SetActive(true);
         trackNames[selectedTrack].gameObject.SetActive(true);
     }
 
@@ -74,6 +77,7 @@ public class MenuTrackSelection : MonoBehaviour
     {
         tracks[selectedTrack].SetActive(false);
         selectedTrackImages[selectedTrack].gameObject.SetActive(false);
+        trackImages[selectedTrack].gameObject.SetActive(false);
         trackNames[selectedTrack].gameObject.SetActive(false);
     }
 }
